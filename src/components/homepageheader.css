@@ -1,0 +1,6 @@
+.mainheader{
+    display: flex;
+    height: 50px;
+    background-color: darkblue;
+    width: 100%;
+}

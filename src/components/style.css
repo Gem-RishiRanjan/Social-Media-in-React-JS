@@ -1,0 +1,123 @@
+.outerbox{
+    background-color: rgb(226, 207, 207);
+    height: 50px;
+    width: 225px;
+    border-radius: 3px;
+    margin-left: 140px;
+}
+
+.logoimg{
+    padding: 2px;
+    height: 23px;
+    width: 20px;
+    float: left;
+    margin-top: 4px;
+}
+
+/* .firstlogo{
+    background-color: white;
+    height: 10px;
+    width: 10px;
+} */
+
+.logoinput{
+    margin-top: 4px;
+    border-style: transparent;
+    width: 180px;
+    height: 20px;
+    border-radius: 3px;
+    font-family: Verdana, sans-serif;
+    padding: 2px;
+    border: none;
+    text-align: center;
+    /* font-family: cursive; */
+    font-size: 15px;
+}
+
+.loginbutton{
+    height: 35px;
+    width: 225px;
+    margin-left: 140px;
+    border-radius: 5px;
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+    background-color: #e61e5a;
+    border: none;
+    color: rgb(226, 207, 207);
+}
+.upperlogo{
+    height: 150px;
+    width: 500px;
+}
+
+.forgot{
+    text-align: center;
+    font-size: 15px;
+    color:#a1aca1;
+    text-decoration: none;
+
+}
+.forgotspan:visited {color:#f00a0a;
+    text-decoration: none;
+}
+.forgotspan:hover { color:white;
+    text-decoration: none;
+}
+
+.signupspan:visited{color:#f00a0a;
+    text-decoration: none;
+
+}
+.signupspan:hover{
+    color:white;
+}
+
+.copyright{
+    text-align: center;
+    font-size: 15px;
+    color:#a1aca1;
+}
+
+.signupbox{
+    margin-top: 10px;
+    margin-left: 700px;
+    width:100 px;
+    height:38px;
+    font-family: Verdana, sans-serif;
+}
+
+.signupinput{
+    /* margin-top: 4px; */
+    width: 213px;
+    height:38px;
+    font-family: Verdana, sans-serif;
+    /* text-align: center; */
+    border-color: red;
+    /* background-color: green; */
+    padding-left: 40px;
+}
+
+.signupemail{
+    margin-top: 4px;
+    width: 518px;
+    height:38px;
+    font-family: Verdana, sans-serif;
+    padding-left: 40px;
+    border-color: red;
+}
+
+.signupbutton{
+    width: 565px;
+    height:38px;
+    margin-left: 705px;;
+    /* border-radius: 5px; */
+    font-family: Verdana, sans-serif;
+    font-weight: bold;
+    background-color: #8d0202;
+    border: none;
+    color: rgb(238, 237, 237);
+}
+
+*:focus {
+    outline: none;
+}

@@ -1,0 +1,28 @@
+.home{
+    display:flex;
+    flex-direction: column;
+}
+
+.sides{
+    display: flex;
+    /* background-color: rgb(229, 226, 226); */
+
+}
+.leftbody{
+    display: flex;
+    flex-direction: column;
+    flex: 0.25;
+    justify-content: top;
+    /* position: absolute   ; */
+}
+
+.body{
+    display: flex;
+    flex: 0.5;
+    flex-direction: column;
+}
+
+.rightbody{
+    display: flex;
+    flex: 0.25;
+}

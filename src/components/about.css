@@ -1,0 +1,15 @@
+.aboutdiv{
+    display: flex;
+    flex:1;
+    justify-content: center;
+    /* margin-left: 100%; */
+    background-color: hsl(36, 38%, 97%);
+    margin: 5% 10%;
+    flex-direction: column;
+    
+}
+
+.aboutelement{
+    margin-left: 3%;
+    padding: 10px;
+}

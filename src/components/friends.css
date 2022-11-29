@@ -1,0 +1,24 @@
+.friends{
+    display: flex;
+    flex: 0.1;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.samelinefriends{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+.friendcard{
+    display: flex;
+    flex: 0.45;
+    background-color: rgb(243, 238, 238);
+    height: 140px;
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+    border-radius: 20px;
+    /* border: 2px solid red; */
+    /* margin: "10px"; */
+}

@@ -1,0 +1,11 @@
+.imagerow{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.imgclass{
+    height: 300px;
+    width: 380px;
+    border: 5px solid black;
+}
