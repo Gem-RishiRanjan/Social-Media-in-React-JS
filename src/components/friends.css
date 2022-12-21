@@ -1,24 +1,31 @@
 .friends{
     display: flex;
-    flex: 0.1;
+
+    /* flex: 0.5; */
+    flex-wrap: wrap;
+    /* flex: 0 0 50%; */
     justify-content: space-between;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
-.samelinefriends{
+
+/* .samelinefriends{
     display: flex;
     flex: 1;
     justify-content: space-between;
-}
+} */
 .friendcard{
+    flex: 1 0 40%;
     display: flex;
-    flex: 0.45;
-    background-color: rgb(243, 238, 238);
+    /* flex: 0.45; */
+    background-color: #edf2f7;
     height: 140px;
-    width: 100%;
+    width: 80%;
     padding: 10px;
-    justify-content: center;
-    border-radius: 20px;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin: 2% 2%;
+
     /* border: 2px solid red; */
     /* margin: "10px"; */
 }

@@ -1,0 +1,85 @@
+.post1{
+    padding-left: 20px;
+    font-weight: bold;
+    color: blue; 
+}
+
+.post2{
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.postbody{
+    display: flex;    
+    flex: 0.5;
+    flex-direction: column;
+    background-color: #edf2f7;
+    margin-top: 25px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.post3{
+    background-color: #edf2f7;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    margin: 10px 10px 10px 0px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.post4{
+    border: none;
+    font-weight: bold;
+    color: blue;
+    background-color: #edf2f7;
+}
+
+.post5{
+    height: 300px;
+    background-color: white;
+    border-radius: 3px;
+    width: 600px;
+}
+.post6{
+    border: none;
+    width: 150px;
+    height: 50px;
+    background-color: #edf2f7
+}
+
+.post7{
+    padding-left: 20px;
+    font-weight: bold;
+    color: blue;
+    border: 0.5px solid grey;
+    border-radius: 20px;
+    height: 50px;
+    width: 40%;
+}
+
+.post8{
+    padding-left: 30px;
+    margin-top: 5px;
+    border: 0.5px solid grey;
+    border-radius: 20px;
+    height: 50px;
+    width: 70%;
+}
+
+.post9{
+    border: 0.5px solid grey;
+    margin: 10px;
+    padding: 13px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.post10{
+    background-color: #f5f3f0;
+    margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+}

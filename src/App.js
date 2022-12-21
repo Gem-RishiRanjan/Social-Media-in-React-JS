@@ -1,5 +1,4 @@
 import './App.css';
-// import Landingpage from './landingpage';
 import Mainpage from './mainpage';
 import Landingpage from './landingpage';
 import Profile from './components/profile';
@@ -18,11 +17,15 @@ function App(){
   <BrowserRouter>
     <Routes>
       <Route path = "/" element={<Mainpage />} />
+
+      <Route path = "/mainpage" element={<Mainpage />} />
       <Route path = "/landingpage" element={<Landingpage />} />
       <Route path = "/resetpassword" element={<Resetpassword />} />
-      <Route path = "/homepage" element={<Homepage />} />
+      <Route path = "/homepage/:loginid" element={<Homepage />} />
       <Route path = "/signup" element={<Signup />} />
-      <Route path = "/profile" element={<Profile />} />
+      <Route path = "/profile/:id" element={<Profile />} />
+    
+
       
     </Routes>
   </BrowserRouter>

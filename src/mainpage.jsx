@@ -5,18 +5,25 @@ import {useNavigate} from 'react-router-dom';
 
 function Mainpage(){
     const navigate = useNavigate();
-    const logg = localStorage.getItem("islogin")==='true';
-    console.log(logg)
-    return(
-        
-        <div>
-            {
-            !logg
-            ? <Landingpage />
 
-            : <Homepage />
-            }
-        </div>
+    const logg = localStorage.getItem("islogin");
+    if(logg == 1){
+        return(
+            <div><Homepage /></div>
+        );
+    }else{
+        
+        return(
+            
+            <Landingpage />
+        );
+    }
+
+
+
+    return(
+        <></>
+
     );
 }
 export default Mainpage;

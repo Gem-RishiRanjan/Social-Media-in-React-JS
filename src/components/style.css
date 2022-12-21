@@ -57,10 +57,12 @@
     text-decoration: none;
 
 }
-.forgotspan:visited {color:#f00a0a;
+
+.forgotspan:visited {color:blue;
     text-decoration: none;
 }
-.forgotspan:hover { color:white;
+.forgotspan:hover { color:red;
+
     text-decoration: none;
 }
 

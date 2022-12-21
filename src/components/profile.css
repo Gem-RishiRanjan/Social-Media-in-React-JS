@@ -47,4 +47,27 @@
     font-weight: bold;
     background-color: white;
     
+
+}
+
+.profile1{
+    position: absolute;
+    left: 16vw;
+    bottom: 18vh;
+    border: 1px solid grey;
+    height: 25%;
+    width: 13%;
+    padding: 5;
+    background-color: white;
+}
+
+.profile2{
+    position: absolute;
+    left: 30vw;
+    bottom:22vh;
+    padding: 5;
+    background-color: transparent;
+    color: black;
+    font-size: 50px;
+
 }

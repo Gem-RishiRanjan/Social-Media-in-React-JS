@@ -1,28 +1,60 @@
 .home{
     display:flex;
     flex-direction: column;
+
+    background-color:white;
+    position: absolute;
+
 }
 
 .sides{
     display: flex;
-    /* background-color: rgb(229, 226, 226); */
 
 }
 .leftbody{
     display: flex;
     flex-direction: column;
-    flex: 0.25;
-    justify-content: top;
-    /* position: absolute   ; */
+
+    flex: 0.5;
+    /* justify-content: top; */
+    position: fixed;
+
 }
 
 .body{
     display: flex;
     flex: 0.5;
     flex-direction: column;
+
+    justify-content: center;
+    margin-left: 60%;
+    width: 100%;
 }
 
 .rightbody{
-    display: flex;
-    flex: 0.25;
+    margin-top: 20%;
+    margin-left: 10%;
+    /* display: flex;
+    flex: 0.25;*/
+}
+
+.home1{
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 17px;
+    padding-top: 20px;
+}
+
+.home2{
+    vertical-align: middle;
+    max-height: 23px;
+    margin-top: 9px;
+    background-color: ghostwhite;
+}
+
+.home3{
+    vertical-align: middle;
+    margin-top: 10px;
+    color: blue;
+
 }
