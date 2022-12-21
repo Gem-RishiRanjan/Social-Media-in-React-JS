@@ -1,0 +1,71 @@
+.profile{
+    display: flex;
+    flex: 1;
+    /* justify-content: center; */
+    flex-direction: column;
+    margin-left: 15%;
+    margin-right: 15%;
+    /* border: 5px solid black ; */
+    /* background-color: grey; */
+    height: 70vh;
+    scroll-behavior: smooth;
+    
+
+
+}
+
+.image{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    /* border: 2px solid green; */
+
+    
+}
+
+.about{
+    /* display: flex;
+    flex: 0.7;
+    justify-content: center;
+    margin-left: 20px; */
+    /* border: 5px solid yellowgreen; */
+    margin-left: 25%;
+    margin-right: 10%;
+    /* background-color: grey; */
+   
+    
+}
+.timeline{
+    border: none;
+    border-right: 0.2px solid lightgrey;
+    width: 20%;
+    height: 50px;
+    color: darkblue;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white;
+    
+}
+
+.profile1{
+    position: absolute;
+    left: 16vw;
+    bottom: 18vh;
+    border: 1px solid grey;
+    height: 25%;
+    width: 13%;
+    padding: 5;
+    background-color: white;
+}
+
+.profile2{
+    position: absolute;
+    left: 30vw;
+    bottom:22vh;
+    padding: 5;
+    background-color: transparent;
+    color: black;
+    font-size: 50px;
+}

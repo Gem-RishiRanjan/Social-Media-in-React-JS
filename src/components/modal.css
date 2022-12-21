@@ -1,0 +1,64 @@
+/* .modal-background{ */
+    /* background:rgba(255, 251, 251, 0.6); */
+/* background-color: aqua; */
+    /* opacity: 0.5; */
+    /* display: flex; 
+    width: 100px;
+    height: 100px; */
+    /* position: fixed; */
+    /* margin: 0% 20%; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: row;
+    margin: auto; */
+    /* border:  20px solid red; */
+
+/* } */
+
+.modal-background{
+    position: fixed;
+    top: 0;
+    right: 0; 
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    /* border: 10px solid #73AD21; */
+    background:rgba(249, 248, 248, 0.8); 
+}
+
+.modal-container{
+    /* border: 2px solid green; */
+    display: flex;
+    height: 80%;
+    /* flex:1; */
+    /* margin-bottom:80%; */
+    width: 80%;
+    /* background: transparent; */
+    /* opacity: 1; */
+    /* position: fixed; */
+    /* justify-content: space-around; */
+    margin-top: 10vh;
+    margin-left: 10vw;
+    background: white;
+}
+
+.commentdiv{
+    display: flex;
+    flex: 1;
+    /* justify-content: space-around; */
+    flex-direction: row;
+    border: 2px solid rgb(211, 208, 208);
+    /* width: 2100px; */
+    background-color:"white";
+    border-radius:2%;
+    margin-left: -115px;
+}
+.coment{
+    /* border: 2px solid blue; */
+    background-color: rgb(255, 251, 251);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    margin-left: 25px;
+}

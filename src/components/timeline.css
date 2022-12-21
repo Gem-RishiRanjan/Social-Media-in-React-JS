@@ -1,0 +1,28 @@
+.time{
+    display :flex;
+    flex: 1;
+    
+}
+.intro{
+    /* display: flex;
+    flex: 0.3; */
+    background-color: #edf2f7;
+    /* /* height: 100px; */
+    width: 350px;
+    scroll-behavior: smooth;
+    padding-left: 15px;
+    padding-top: 10px    ;
+    border-radius: 5px;
+    margin-right: 10px;
+
+    
+}
+.title{
+    padding-left: 10px;
+    bottom: 20px;
+    /* font-weight: bold; */
+    font-size: 15px;
+}
+.inlinetitle{
+    color: darkblue;
+}
