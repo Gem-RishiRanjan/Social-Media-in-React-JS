@@ -1,33 +1,27 @@
-
 import React, { useState, useRef } from "react";
-
-import ReactDOM from "react-dom";
-import pic1 from "./pic14.png";
-import pic2 from "./pic9.svg";
-import pic3 from "./pic11.svg";
-import pic4 from "./pic12.svg";
-import pic5 from "./pic13.svg";
+import signupPageIcon from "../images/pic14.png";
+import NameIcon from "../images/pic9.svg";
+import emailIcon from "../images/pic11.svg";
+import phoneIcon from "../images/pic12.svg";
+import paswordIcon from "../images/pic13.svg";
 import "./style.css";
 
 import { Link, useNavigate } from "react-router-dom";
-import {db} from './firebase';
-import { collection, getDocs, setDoc, doc, addDoc, updateDoc, deleteDoc, onSnapshot } from "firebase/firestore"; 
-
+import { db } from "./firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 function Signup() {
   const [error, setError] = useState(null);
   const [phoneerror, setPhoneError] = useState(null);
-  const [passerror, setPassError] = useState(null);
-  const [confirmpasserror, setConfirmPassError] = useState(null);
+  const [passwordError, setPasswordError] = useState(null);
+  const [confirmPasswordError, setConfirmPasswordError] = useState(null);
   const navigate = useNavigate();
   const validPassword = new RegExp("^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$");
   const validPhone = new RegExp("[1-9][0-9]{7,14}$");
   const emailElement = useRef(null);
-  const passElement = useRef(null);
+  const passwordElement = useRef(null);
   const phoneElement = useRef(null);
-  const confirmpassElement = useRef(null);
-
-  // const storedLogins = JSON.parse(localStorage.getItem("loginDetails"));
+  const confirmPasswordElement = useRef(null);
 
   const usersCollectionRef = collection(db, "loginDetails");
 
@@ -51,22 +45,22 @@ function Signup() {
     }
   };
 
-  const handlePassword = (passElement) => {
-    if (!isValidPassword(passElement.target.value)) {
-      setPassError("Password is invalid");
+  const handlePassword = (passwordElement) => {
+    if (!isValidPassword(passwordElement.target.value)) {
+      setPasswordError("Password is invalid");
     } else {
-      setPassError(null);
+      setPasswordError(null);
     }
   };
 
-  const handleConfirmPassword = (confirmpassElement) => {
+  const handleConfirmPassword = (confirmPasswordElement) => {
     if (
-      isValidPassword(passElement.current.value) !=
-      isValidPassword(confirmpassElement.target.value)
+      isValidPassword(passwordElement.current.value) !=
+      isValidPassword(confirmPasswordElement.target.value)
     ) {
-      setConfirmPassError("Passwords do not match");
+      setConfirmPasswordError("Passwords do not match");
     } else {
-      setConfirmPassError(null);
+      setConfirmPasswordError(null);
     }
   };
 
@@ -79,328 +73,113 @@ function Signup() {
   };
 
   const validate = () => {
-    alert("hello");
     if (
       isValidEmail(emailElement.current.value) &&
-      isValidPassword(passElement.current.value) &&
+      isValidPassword(passwordElement.current.value) &&
       isValidPhone(phoneElement.current.value) &&
-      isValidPassword(confirmpassElement.current.value)
+      isValidPassword(confirmPasswordElement.current.value)
     ) {
-
       const createUser = async () => {
         await addDoc(usersCollectionRef, {
           loginId: Math.floor(Math.random() * 101) + 100,
           email: emailElement.current.value,
-          password: confirmpassElement.current.value,
+          password: confirmPasswordElement.current.value,
         });
-      }
+      };
 
       createUser();
-      // window.location.reload(true);
-
-      // storedLogins.push({
-      //   id: storedLogins[storedLogins.length - 1].id + 1,
-      //   email: emailElement.current.value,
-      //   password: confirmpassElement.current.value,
-      // });
-      // localStorage.setItem("loginDetails", JSON.stringify(storedLogins));
 
       navigate("/mainpage");
-      
     }
   };
 
   return (
     <div style={{ margin: "auto", width: "80%" }}>
       <img
-        src={pic1}
+        src={signupPageIcon}
         style={{ float: "left", height: "80%", width: "50%", marginTop: "5%" }}
       />
       <div
         style={{ float: "right", height: "80%", width: "40%", marginTop: "2%" }}
       >
-        <div
-          style={{
-            float: "left",
-            width: "45%",
-            height: "40px",
-            borderStyle: "solid",
-            borderColor: "grey",
-            borderWidth: "2px",
-          }}
-        >
-          <img
-            src={pic2}
-            style={{
-              height: "83%",
-              width: "6%",
-              float: "left",
-              marginLeft: "9%",
-              marginTop: "1%",
-            }}
-          />
+        <div className="signup1">
+          <img className="signup2" src={NameIcon} />
           &nbsp;&nbsp;&nbsp;
-          <input
-            type="text"
-            placeholder="First Name"
-            style={{
-              height: "80%",
-              width: "75%",
-              border: "none",
-              marginTop: "1%",
-            }}
-          />
+          <input className="signup3" type="text" placeholder="First Name" />
         </div>
 
-        <div
-          style={{
-            float: "right",
-            width: "45%",
-            height: "40px",
-            borderStyle: "solid",
-            borderColor: "grey",
-            borderWidth: "2px",
-          }}
-        >
-          <img
-            src={pic2}
-            style={{
-              height: "83%",
-              width: "6%",
-              float: "left",
-              marginLeft: "9%",
-              marginTop: "1%",
-            }}
-          />
+        <div className="signup4">
+          <img className="signup5" src={NameIcon} />
           &nbsp;&nbsp;&nbsp;
-          <input
-            type="text"
-            placeholder="Last Name"
-            style={{
-              height: "80%",
-              width: "75%",
-              border: "none",
-              marginTop: "1%",
-            }}
-          />
+          <input className="signup6" type="text" placeholder="Last Name" />
         </div>
         <br />
         <br />
         <br />
 
-        <div
-          style={{
-            width: "99%",
-            height: "40px",
-            float: "left",
-            borderStyle: "solid",
-            borderColor: "grey",
-            borderWidth: "2px",
-          }}
-        >
-          <img
-            src={pic3}
-            style={{
-              height: "50%",
-              width: "5%",
-              float: "left",
-              marginLeft: "3%",
-              marginTop: "2%",
-            }}
-          />{" "}
-          &nbsp;&nbsp;&nbsp;&nbsp;
+        <div className="signup7">
+          <img className="signup8" src={emailIcon} /> &nbsp;&nbsp;&nbsp;&nbsp;
           <input
+            className="signup9"
             type="email"
             placeholder="Email Address"
             onBlur={handleChange}
             ref={emailElement}
-            style={{
-              height: "20px",
-              width: "75%",
-              marginTop: "10px",
-              border: "none",
-            }}
           />
         </div>
         <br />
-        {error && (
-          <span
-            style={{
-              color: "red",
-              fontWeight: "bold",
-              fontSize: "15px",
-              fontFamily: "cursive",
-            }}
-          >
-            {error}
-          </span>
-        )}
+        {error && <span className="signup10">{error}</span>}
         <br />
         <br />
 
-        <div
-          style={{
-            width: "99%",
-            height: "40px",
-            float: "left",
-            borderStyle: "solid",
-            borderColor: "grey",
-            borderWidth: "2px",
-          }}
-        >
-          <img
-            src={pic4}
-            style={{
-              height: "50%",
-              width: "5%",
-              float: "left",
-              marginLeft: "3%",
-              marginTop: "2%",
-            }}
-          />{" "}
-          &nbsp;&nbsp;&nbsp;&nbsp;
+        <div className="signup11">
+          <img className="signup12" src={phoneIcon} /> &nbsp;&nbsp;&nbsp;&nbsp;
           <input
+            className="signup9"
             type="text"
             placeholder="Phone number"
             onBlur={handlePhone}
             ref={phoneElement}
-            style={{
-              height: "20px",
-              width: "75%",
-              marginTop: "10px",
-              border: "none",
-            }}
           />
         </div>
         <br />
-        {phoneerror && (
-          <span
-            style={{
-              color: "red",
-              fontWeight: "bold",
-              fontSize: "15px",
-              fontFamily: "cursive",
-            }}
-          >
-            {phoneerror}
-          </span>
-        )}
+        {phoneerror && <span className="signup10">{phoneerror}</span>}
         <br />
         <br />
 
-        <div
-          style={{
-            float: "left",
-            width: "45%",
-            height: "40px",
-            borderStyle: "solid",
-            borderColor: "grey",
-            borderWidth: "2px",
-          }}
-        >
-          <img
-            src={pic5}
-            style={{
-              height: "83%",
-              width: "6%",
-              float: "left",
-              marginLeft: "9%",
-              marginTop: "1%",
-            }}
-          />
+        <div className="signup1">
+          <img className="signup5" src={paswordIcon} />
           &nbsp;&nbsp;&nbsp;
           <input
+            className="signup6"
             type="password"
             placeholder="Password"
             onBlur={handlePassword}
-            ref={passElement}
-            style={{
-              height: "80%",
-              width: "75%",
-              border: "none",
-              marginTop: "1%",
-            }}
+            ref={passwordElement}
           />
         </div>
 
-        <div
-          style={{
-            float: "right",
-            width: "45%",
-            height: "40px",
-            borderStyle: "solid",
-            borderColor: "grey",
-            borderWidth: "2px",
-          }}
-        >
-          <img
-            src={pic5}
-            style={{
-              height: "83%",
-              width: "6%",
-              float: "left",
-              marginLeft: "9%",
-              marginTop: "1%",
-            }}
-          />
+        <div className="signup4">
+          <img className="signup5" src={paswordIcon} />
           &nbsp;&nbsp;&nbsp;
           <input
+            className="signup3"
             type="password"
             placeholder="Confirm Password"
             onChange={handleConfirmPassword}
-            ref={confirmpassElement}
-            style={{
-              height: "80%",
-              width: "75%",
-              border: "none",
-              marginTop: "1%",
-            }}
+            ref={confirmPasswordElement}
           />
         </div>
         <br />
-        {passerror && (
-          <span
-            style={{
-              color: "red",
-              fontWeight: "bold",
-              fontSize: "15px",
-              fontFamily: "cursive",
-            }}
-          >
-            {passerror}
-          </span>
-        )}
-        {confirmpasserror && (
-          <span
-            style={{
-              color: "red",
-              marginLeft: "55%",
-              fontWeight: "bold",
-              fontSize: "15px",
-              fontFamily: "cursive",
-            }}
-          >
-            {confirmpasserror}
-          </span>
+        {passwordError && <span className="signup10">{passwordError}</span>}
+        {confirmPasswordError && (
+          <span className="signup13">{confirmPasswordError}</span>
         )}
         <br />
         <br />
 
         <div>
-          <button
-            onClick={validate}
-            style={{
-              width: "100%",
-              height: "40px",
-              float: "left",
-              borderStyle: "solid",
-              borderColor: "darkgrey",
-              borderWidth: "2px",
-              backgroundColor: "lightgrey",
-              borderRadius: "5px",
-              fontWeight:"bold"
-            }}
-          >
+          <button className="signup14" onClick={validate}>
             Create your account
           </button>
         </div>
@@ -415,42 +194,13 @@ function Signup() {
         <br />
 
         <div>
-          <button
-            style={{
-              width: "100%",
-              height: "40px",
-              float: "left",
-              borderStyle: "solid",
-              borderColor: "#031994",
-              borderWidth: "2px",
-              borderRadius: "5px",
-              backgroundColor: "#031994",
-              color: "white",
-            }}
-          >
-            Continue with Facebook
-          </button>
+          <button className="signup15">Continue with Facebook</button>
         </div>
         <br />
         <br />
         <br />
         <div>
-          <button
-            style={{
-              width: "100%",
-              height: "40px",
-              float: "left",
-              borderStyle: "solid",
-              borderColor: "#039dfc",
-              borderWidth: "2px",
-              color: "white",
-              borderRadius: "5px",
-              backgroundColor: "#039dfc",
-              borderRadius: "5px",
-            }}
-          >
-            Continue with Twitter
-          </button>
+          <button className="signup16">Continue with Twitter</button>
         </div>
       </div>
     </div>
@@ -458,4 +208,3 @@ function Signup() {
 }
 
 export default Signup;
-

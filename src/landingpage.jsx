@@ -1,4 +1,3 @@
-
 import "./App.css";
 import Signup from "./components/signup";
 import Login from "./components/login";
@@ -10,56 +9,30 @@ function Landingpage() {
 
   return (
     <div>
-      <div style={{ float: "right", marginRight: "20%", marginTop: "3%" }}>
+      <div className="land0">
         {show ? (
-          <button
+          <button className="land1"
             onClick={() => setShow(true)}
-            style={{
-              marginTop: "5px",
-              fontSize: "25px",
-              color: "#0b2fe6",
-              backgroundColor: "transparent",
-              border: "none",
-            }}
           >
             <b>Login</b>
           </button>
         ) : (
-          <button
+          <button className="land2"
             onClick={() => setShow(true)}
-            style={{
-              marginTop: "5px",
-              fontSize: "25px",
-              color: "#8596ed",
-              backgroundColor: "transparent",
-              border: "none",
-            }}
           >
             <b>Login</b>
           </button>
         )}
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         {show ? (
-          <button
+          <button className="land3"
             onClick={() => setShow(false)}
-            style={{
-              fontSize: "25px",
-              color: "#8596ed",
-              backgroundColor: "transparent",
-              border: "none",
-            }}
           >
             <b>Signup</b>
           </button>
         ) : (
-          <button
+          <button className="land4"
             onClick={() => setShow(false)}
-            style={{
-              fontSize: "25px",
-              color: "#0b2fe6",
-              backgroundColor: "transparent",
-              border: "none",
-            }}
           >
             <b>Signup</b>
           </button>

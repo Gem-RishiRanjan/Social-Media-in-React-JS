@@ -1,48 +1,31 @@
-
 import React from "react";
-import dhoni from "./dhoni.jpg";
+import dhoni from "../images/dhoni.jpg";
 import "./friends.css";
 import { allUsers } from "./data";
 import { useNavigate } from "react-router-dom";
 
 function Friends({ myFriends }) {
   const navigate = useNavigate();
-  const friendzs = [];
+  const friendDetails = [];
   myFriends.forEach((element) => {
     allUsers
       .filter((people) => people.id == element)
-      .map((filPer) => {
-        friendzs.push(
+      .map((filterPerson) => {
+        friendDetails.push(
           <div className="friendcard">
-            <img
-              src={filPer.dp}
-              style={{ borderRadius: "80px", width: "125px", height: "125px" }}
-            />
-            <div
-              style={{
-                display: "flex",
-                flex: 1,
-                flexDirection: "column",
-                padding: "10px",
-              }}
-            >
-              <span style={{ fontSize: "25px", fontWeight: "bold" }}>
+            <img className="friend1" src={filterPerson.dp} />
+            <div className="friend2">
+              <span className="friend3">
                 <button
-                  style={{
-                    fontSize: "25px",
-                    fontWeight: "bold",
-                    border: "none",
-                  }}
-                  onClick={() => navigate(`/profile/${filPer.id}`)}
+                  className="friend3"
+                  onClick={() => navigate(`/profile/${filterPerson.id}`)}
                 >
-                  {filPer.name}
+                  {filterPerson.name}
                 </button>
               </span>
               <br />
 
-              <span
-                style={{ fontSize: "20px", color: "blue", fontWeight: "bold" }}
-              >
+              <span className="friend4">
                 {" "}
                 <u>Friends</u>{" "}
               </span>
@@ -51,34 +34,21 @@ function Friends({ myFriends }) {
         );
       });
   });
-  return <div className="friends">{friendzs}</div>;
+  return <div className="friends">{friendDetails}</div>;
 }
 
 <div className="friends">
   <div className="friendcard">
-    <img
-      src={dhoni}
-      style={{ borderRadius: "80px", width: "125px", height: "125px" }}
-    />
-    <div
-      style={{
-        display: "flex",
-        flex: 1,
-        flexDirection: "column",
-        padding: "10px",
-      }}
-    >
-      <span style={{ fontSize: "25px", fontWeight: "bold" }}>
-        <button
-          style={{ fontSize: "25px", fontWeight: "bold", border: "none" }}
-          onClick={() => alert("hello")}
-        >
+    <img className="friend1" src={dhoni} />
+    <div className="friend2">
+      <span className="friend3">
+        <button className="friend3" onClick={() => alert("hello")}>
           Dhoni
         </button>
       </span>
       <br />
 
-      <span style={{ fontSize: "20px", color: "blue", fontWeight: "bold" }}>
+      <span className="friend5">
         {" "}
         <u>Friends</u>{" "}
       </span>
@@ -86,6 +56,4 @@ function Friends({ myFriends }) {
   </div>
 </div>;
 
-
 export default Friends;
-

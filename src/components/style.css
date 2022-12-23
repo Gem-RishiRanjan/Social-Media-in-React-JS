@@ -123,3 +123,229 @@
 *:focus {
     outline: none;
 }
+
+.login1{
+    margin: auto; 
+    width: 80%;
+}
+
+.login2{
+    float: left; 
+    height: 80%; 
+    width: 50%; 
+    margin-top: 5%;
+}
+
+.login3{
+    float: right;
+    height: 80%; 
+    width: 40%;
+}
+
+.login4{
+    width: 99%;
+    height: 40px;
+    float: left;
+    border-style: solid;
+    border-color: grey;
+    border-width: 2px;
+}
+
+.login5{
+    height: 50%;
+    width: 5%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1.5%;
+}
+
+.login6{
+    height: 20px;
+    width: 75%;
+    margin-top: 10px;
+    border: none;
+}
+
+.login7{
+    color: red;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: cursive;
+}
+
+.login8{
+    float: left;
+    width: 100%;
+    height: 40px;
+    border-style: solid;
+    border-color: grey;
+    border-width: 2px;
+}
+
+.login9{
+    height: 55%;
+    width: 6%;
+    float: left;
+    margin-left: 2%;
+    margin-top: 1.3%
+}
+
+.login10{
+    height: 80%;
+    width: 75%;
+    border: none;
+    margin-top: 1%;
+}
+
+.login11{
+    width: 100%;
+    height: 40px;
+    float: left;
+    border-style: solid;
+    border-color: darkgrey;
+    border-width: 2px;
+    background-color: lightgrey;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.signup1{
+    float: left;
+    width: 45%;
+    height: 40px;
+    border-style: solid;
+    border-color: grey;
+    border-width: 2px;
+}
+
+.signup2{
+    height: 83%;
+    width: 6%;
+    float: left;
+    margin-left: 9%;
+    margin-top: 1%;
+}
+
+.signup3{
+    height: 80%;
+    width: 75%;
+    border: none;
+    margin-top: 1%;
+}
+
+.signup4{
+    float: right;
+    width: 45%;
+    height: 40px;
+    border-style: solid;
+    border-color: grey;
+    border-width: 2px;
+}
+
+.signup5{
+    height: 83%;
+    width: 6%;
+    float: left;
+    margin-left: 9%;
+    margin-top: 1%
+}
+
+.signup6{
+    height: 80%;
+    width: 75%;
+    border: none;
+    margin-top: 1%;
+}
+
+.signup7{
+    width: 99%;
+    height: 40px;
+    float: left;
+    border-style: solid;
+    border-color: grey;
+    border-width: 2px;
+}
+
+.signup8{
+    height: 50%;
+    width: 5%;
+    float: left;
+    margin-left: 3%;
+    margin-top: 2%;
+}
+
+.signup9{
+    height: 20px;
+    width: 75%;
+    margin-top: 10px;
+    border: none;
+}
+
+.signup10{
+    color: red;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: cursive;
+}
+
+.signup11{
+    width: 99%;
+    height: 40px;
+    float: left;
+    border-style: solid;
+    border-color: grey;
+    border-width: 2px;
+}
+
+.signup12{
+    height: 50%;
+    width: 5%;
+    float: left;
+    margin-left: 3%;
+    margin-top: 2%
+}
+
+.signup13{
+    color: red;
+    margin-left: 55%;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: cursive;
+}
+
+.signup14{
+    width: 100%;
+    height: 40px;
+    float: left;
+    border-style: solid;
+    border-color: darkgrey;
+    border-width: 2px;
+    background-color: lightgrey;
+    border-radius: 5px;
+    font-weight:bold
+}
+
+.signup15{
+    width: 100%;
+    height: 40px;
+    float: left;
+    border-style: solid;
+    border-color: #031994;
+    border-width: 2px;
+    border-radius: 5px;
+    background-color: #031994;
+    color: white;
+}
+
+.signup16{
+    width: 100%;
+    height: 40px;
+    float: left;
+    border-style: solid;
+    border-color: #039dfc;
+    border-width: 2px;
+    color: white;
+    border-radius: 5px;
+    background-color: #039dfc;
+    border-radius: 5px;
+}

@@ -1,18 +1,16 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./homepage.css";
 
 import Homepageheader from "./homepageheader";
-import news from "./news.svg";
-import messenger from "./fbmessenger.svg";
-import tv from "./tv.svg";
-import shop from "./shop.svg";
-import cal from "./calendar.svg";
-import flag from "./flag.svg";
-import group from "./group.svg";
-import drop from "./caret.svg";
-import Modal from "./modal";
+import news from "../images/news.svg";
+import messenger from "../images/fbmessenger.svg";
+import tv from "../images/tv.svg";
+import shop from "../images/shop.svg";
+import cal from "../images/calendar.svg";
+import flag from "../images/flag.svg";
+import group from "../images/group.svg";
+import drop from "../images/caret.svg";
 import Post from "./post";
 import { db } from "./firebase";
 import { collection, onSnapshot } from "firebase/firestore";
@@ -21,11 +19,7 @@ function Homepage() {
   const navigate = useNavigate();
   const { loginid } = useParams();
   const usersCollectionRef = collection(db, "all Posts");
-  const [comm, setComm] = useState([
-    { Name: "MS Dhoni", comment: "Beautiful picture" },
-    { Name: "Sachin RT", comment: "Scary one!!" },
-    { Name: "Yuzi Chahal", comment: "Its dangerous" },
-  ]);
+
   const [modal, showModal] = useState(false);
 
   const [posts, setPosts] = useState([]);
@@ -39,6 +33,17 @@ function Homepage() {
     }
   });
 
+  const leftBodyData = [
+    { image: news, text: "NewsFeed" },
+    { image: messenger, text: "Messenger" },
+    { image: tv, text: "Watch" },
+    { image: shop, text: "Marketplace" },
+    { image: cal, text: "Events" },
+    { image: flag, text: "Pages" },
+    { image: group, text: "Groups" },
+    { image: drop, text: "See more..." },
+  ];
+
   useEffect(() => {
     const getPosts = async () => {
       onSnapshot(usersCollectionRef, (data) => {
@@ -48,6 +53,19 @@ function Homepage() {
     getPosts();
   }, []);
 
+  const leftsidedata = [];
+  const leftData = () => {
+    leftBodyData.map((data) => {
+      return leftsidedata.push(
+        <div className="home1">
+          <img className="home2" src={data.image} />
+
+          <span className="home4">&nbsp;{data.text}&nbsp;&nbsp;&nbsp;...</span>
+        </div>
+      );
+    });
+  };
+  leftData();
   return (
     <div className="home">
       <div style={{ position: "fixed" }}>
@@ -57,71 +75,7 @@ function Homepage() {
       <br />
       <div className="sides">
         <div className="leftbody">
-          <div className="home1">
-            <img className="home2" src={news} />
-
-            <span style={{ verticalAlign: "middle", marginTop: "10px" }}>
-              &nbsp;Newsfeed&nbsp;&nbsp;&nbsp;...
-            </span>
-          </div>
-
-          <div className="home1">
-            <img className="home2" src={messenger} />
-
-            <span style={{ verticalAlign: "middle", marginTop: "10px" }}>
-              &nbsp;Messenger
-            </span>
-          </div>
-
-          <div className="home1">
-            <img className="home2" src={tv} />
-
-            <span style={{ verticalAlign: "middle", marginTop: "10px" }}>
-              &nbsp;Watch
-            </span>
-          </div>
-
-          <div className="home1">
-            <img className="home2" src={cal} />
-
-            <span style={{ verticalAlign: "middle", marginTop: "10px" }}>
-              &nbsp;Marketplace
-            </span>
-          </div>
-
-          <div className="home1">
-            <u>Explore</u>
-          </div>
-
-          <div className="home1">
-            <img className="home2" src={shop} />
-
-            <span style={{ verticalAlign: "middle", marginTop: "10px" }}>
-              &nbsp;Events
-            </span>
-          </div>
-
-          <div className="home1">
-            <img className="home2" src={flag} />
-
-            <span style={{ verticalAlign: "middle", marginTop: "10px" }}>
-              &nbsp;Pages
-            </span>
-          </div>
-
-          <div className="home1">
-            <img className="home2" src={group} />
-
-            <span style={{ verticalAlign: "middle", marginTop: "10px" }}>
-              &nbsp;Groups
-            </span>
-          </div>
-
-          <div className="home1">
-            <img className="home2" src={drop} />
-
-            <span className="home3">&nbsp;See more...</span>
-          </div>
+          {leftsidedata}
 
           <div className="home1">
             <span className="home3">Ad . Group . Page</span>
@@ -134,14 +88,15 @@ function Homepage() {
           {posts.map((e, index) => {
             return (
               <div key={index}>
-                <Post
+                <Post 
+                // data = {e}
+                
                   name={e.name}
                   date={e.date}
                   time={e.time}
                   imgsrc={e.imgsrc}
                   likeCount={e.likeCount}
                   postedBy={e.postedBy}
-                  // comment={e.comment}
                   loginid={loginid}
                   comid={e.id}
                 />
@@ -151,10 +106,9 @@ function Homepage() {
         </div>
       </div>
       <div></div>
-      {modal && <Modal showModal={showModal} comm={comm} />}
+      
     </div>
   );
 }
 
 export default Homepage;
-

@@ -1,12 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
-import like from "./like4.png";
-import like2 from "./like2.png";
-import commentz from "./comment.svg";
-import share from "./share.svg";
+import like from "../images/like4.png";
+import like2 from "../images/like2.png";
+import commentz from "../images/comment.svg";
+import share from "../images/share.svg";
 import Modal from "./modal";
-import { Link, useNavigate } from "react-router-dom";
-import { allUsers } from "./data";
-import like3 from "./like3.png";
+import { useNavigate } from "react-router-dom";
+import like3 from "../images/like3.png";
 import { db } from "./firebase";
 import "./post.css";
 import {
@@ -35,20 +34,20 @@ function Post({
   const [count, setCount] = useState(likeCount);
   const nameElement = useRef(null);
   const commentElement = useRef(null);
-  const [likez, setLike] = useState(false);
-  const [postcom, setPostcom] = useState([]);
+  const [isLiked, setIsLiked] = useState(false);
+  const [postComments, setPostComments] = useState([]);
 
   function increase() {
     setCount(count + 1);
-    setLike(true);
+    setIsLiked(true);
   }
 
   function decrease() {
     setCount(count - 1);
-    setLike(false);
+    setIsLiked(false);
   }
 
-  const [commod, setCommod] = useState(false);
+  const [modalComment, setModalComment] = useState(false);
 
   const usersCollectionRef = collection(db, "all Posts", comid, "comment");
 
@@ -57,7 +56,7 @@ function Post({
       let postarr = [];
       await onSnapshot(usersCollectionRef, async (data) => {
         data.docs.map((doc) => {
-          setPostcom([...postcom, { data: doc.data(), id: doc.id }]);
+          setPostComments([...postComments, { data: doc.data(), id: doc.id }]);
         });
       });
     };
@@ -65,8 +64,8 @@ function Post({
   }, []);
 
   useEffect(() => {
-    console.log(postcom);
-  }, [postcom]);
+    console.log(postComments);
+  }, [postComments]);
 
   const showcom = [];
   const finalize = async () => {
@@ -77,31 +76,28 @@ function Post({
 
     nameElement.current.value = "";
     commentElement.current.value = "";
-    setCommod(false);
+    setModalComment(false);
   };
 
   {
     showcom.push(
       <div>
         <div className="post1">
-          {postcom.length > 0 ? postcom[0].data.commentBy : ""}
+          {postComments.length > 0 ? postComments[0].data.commentBy : ""}
         </div>
 
         <div className="post2">
-
-          {postcom.length > 0 ? postcom[0].data.commentText : ""}
+          {postComments.length > 0 ? postComments[0].data.commentText : ""}
         </div>
       </div>
     );
 
     return (
-      <div
-        className="postbody"
-      >
+      <div className="postbody">
         <div>
-          <div className="post3"
-          >
-            <button className="post4"
+          <div className="post3">
+            <button
+              className="post4"
               onClick={() => navigate(`/profile/${postedBy}`)}
             >
               {name}
@@ -111,9 +107,7 @@ function Post({
             {time}
           </div>
           <button onClick={() => showModal(true)} style={{ border: "none" }}>
-            <img className="post5"
-              src={imgsrc}
-            />
+            <img className="post5" src={imgsrc} />
           </button>
 
           <div>
@@ -131,26 +125,20 @@ function Post({
             <br />
 
             <div style={{ backgroundColor: "#edf2f7" }}>
-              {likez ? (
-                <button className="post6"
-                  onClick={decrease}
-                >
+              {isLiked ? (
+                <button className="post6" onClick={decrease}>
                   <img src={like3} style={{ height: "25px" }} />
                   &nbsp;Like
                 </button>
               ) : (
-                <button className="post6"
-                  onClick={increase}
-                >
+                <button className="post6" onClick={increase}>
                   <img src={like2} style={{ height: "25px" }} />
                   &nbsp;Like
                 </button>
               )}
               &nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button className="post6"
-                onClick={() => setCommod(!commod)}
-              >
+              <button className="post6" onClick={() => setModalComment(!modalComment)}>
                 <img
                   src={commentz}
                   style={{ height: "25px", marginRight: "2px" }}
@@ -158,15 +146,14 @@ function Post({
                 &nbsp;Comment
               </button>
               &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button className="post6"
-              >
+              <button className="post6">
                 <img src={share} style={{ height: "25px" }} />
                 &nbsp;Share
               </button>
             </div>
           </div>
         </div>
-        {commod ? (
+        {modalComment ? (
           <div style={{ width: "87%", borderRadius: "4px" }}>
             <input
               type="text"
@@ -176,29 +163,18 @@ function Post({
               hidden
             />
             <br />
-            <input
-              type="text"
-              placeholder="Comment"
-              ref={commentElement}
-            />
-            <button
-              onClick={finalize}
-            >
-              Comment
-            </button>
+            <input type="text" placeholder="Comment" ref={commentElement} />
+            <button onClick={finalize}>Comment</button>
           </div>
         ) : (
           <div></div>
         )}
         <div style={{ width: "87%", borderRadius: "4px" }}>
-          <div className="post10"
-          >
-            {showcom}
-          </div>
+          <div className="post10">{showcom}</div>
         </div>
 
         {modal && (
-          <Modal showModal={showModal} props={imgsrc} comment={postcom} />
+          <Modal showModal={showModal} props={imgsrc} comment={postComments} />
         )}
       </div>
     );

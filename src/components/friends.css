@@ -29,3 +29,34 @@
     /* border: 2px solid red; */
     /* margin: "10px"; */
 }
+
+.friend1{
+    border-radius: 80px;
+    width: 125px; 
+    height: 125px
+}
+
+.friend2{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.friend3{
+    font-size: 25px;
+    font-weight: bold;
+    border: none
+}
+
+.friend4{
+    font-size: 20px; 
+    color: blue;
+    font-weight: bold;
+}
+
+.friend5{
+    font-size: 20px;
+    color: blue;
+    font-weight: bold;
+}
