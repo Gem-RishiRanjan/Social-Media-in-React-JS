@@ -4,7 +4,7 @@ import "./homepageheader.css";
 import search from "../images/search.webp";
 import request from "../images/request.png";
 import messenger from "../images/messenger.png";
-import bell from "../images/bell.png"
+import bell from "../images/bell.png";
 import { useNavigate } from "react-router-dom";
 import { db } from "./firebase";
 import { collection, onSnapshot } from "firebase/firestore";
@@ -33,16 +33,11 @@ function Homepageheader({ loginid }) {
 
   return (
     <div className="mainheader">
-      <img className="header6"
-        src={fb}
-      />
-      &nbsp;&nbsp;&nbsp;&nbsp;
+      <img className="header6" src={fb} />
+
       <input className="header1" type="text" placeholder="Search" />
       <img className="header2" src={search} />
-      &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;
+
       <button
         className="header3"
         onClick={() => navigate(`/profile/${loggedInPerson.loginId}`)}
@@ -73,4 +68,3 @@ function Homepageheader({ loginid }) {
 }
 
 export default Homepageheader;
-

@@ -60,7 +60,7 @@ function Homepage() {
         <div className="home1">
           <img className="home2" src={data.image} />
 
-          <span className="home4">&nbsp;{data.text}&nbsp;&nbsp;&nbsp;...</span>
+          <span className="home4">{" "}{data.text}</span>
         </div>
       );
     });

@@ -137,7 +137,8 @@ function Login({}) {
         <br />
         <br />
         <div className="login4">
-          <img className="login5" src={emailIcon} /> &nbsp;&nbsp;&nbsp;&nbsp;
+          <img className="login5" src={emailIcon} /> 
+          
           <input
             className="login6"
             type="email"
@@ -153,7 +154,7 @@ function Login({}) {
 
         <div className="login8">
           <img className="login9" src={passwordIcon} />
-          &nbsp;&nbsp;&nbsp;
+         
           <input
             className="login10"
             type="password"

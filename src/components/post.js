@@ -102,8 +102,8 @@ function Post({
             >
               {name}
             </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            {date}&nbsp;&nbsp;&nbsp;&nbsp;
+            {" "}
+            {date}{" "}
             {time}
           </div>
           <button onClick={() => showModal(true)} style={{ border: "none" }}>

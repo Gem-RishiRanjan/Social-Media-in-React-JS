@@ -3,7 +3,6 @@ import "./modal.css";
 import { allUsers } from "./data";
 
 function Modal({ showModal, props, comment }) {
-
   const listItems = comment.map((element) => {
     return (
       <div className="modal1">
@@ -25,8 +24,7 @@ function Modal({ showModal, props, comment }) {
         </div>
         <div className="commentdiv">
           <div className="modal5">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <u style={{ fontWeight: "bold" }}>Comments</u>
+            <u className="modal7">Comments</u>
             {listItems}
           </div>
           <button className="modal6" onClick={() => showModal(false)}>
