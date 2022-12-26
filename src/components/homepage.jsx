@@ -69,7 +69,7 @@ function Homepage() {
   return (
     <div className="home">
       <div style={{ position: "fixed" }}>
-        <Homepageheader loginid={loginid} />
+        <Homepageheader loginid = {loginid} />
       </div>
       <br />
       <br />
