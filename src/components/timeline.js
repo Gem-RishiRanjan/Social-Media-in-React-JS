@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import intro from "../images/intro.svg";
 import suit from "../images/suit.svg";
 import bat from "../images/bat.png";
@@ -7,13 +7,26 @@ import heart from "../images/heart.svg";
 import "./timeline.css";
 import allPosts from "./data";
 import Post from "./post";
+import { db } from "./firebase";
+import { collection, onSnapshot } from "firebase/firestore";
 
-function Timeline({ name, timeLineData, id }) {
-  const loginid = { id };
+function Timeline({ name, timeLineData, loginId }) {
+  const [posts, setPosts] = useState([]);
+  const loginid = loginId;
   var myOwnPosts = [];
   console.log(loginid);
+  const usersCollectionRef = collection(db, "all Posts");
 
-  allPosts
+  useEffect(() => {
+    const getPosts = async () => {
+      onSnapshot(usersCollectionRef, (data) => {
+        setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      });
+    };
+    getPosts();
+  }, []);
+
+  posts
     .filter((mypost) => mypost.name == name)
     .filter((e) => {
       myOwnPosts.push(
@@ -24,8 +37,10 @@ function Timeline({ name, timeLineData, id }) {
           imgsrc={e.imgsrc}
           likeCount={e.likeCount}
           postedBy={e.postedBy}
-          comment={e.comment}
+          // comment={e.comment}
+
           loginid={loginid}
+          comid={e.id}
         />
       );
     });
@@ -50,23 +65,23 @@ function Timeline({ name, timeLineData, id }) {
         </div>
         <div className="intro">
           <img src={suit} style={{ height: 15, width: 15 }} />
-          <span className="title">{timeLineData[1]}</span>
+          <span className="title">Studied at Vivekanand International School</span>
         </div>
         <div className="intro">
           <img src={suit} style={{ height: 15, width: 15 }} />
-          <span className="title">{timeLineData[2]}</span>
+          <span className="title">Founder at POKKT Pvt Ltd</span>
         </div>
         <div className="intro">
           <img src={bat} style={{ height: 30, width: 17 }} />
-          <span className="title">{timeLineData[3]}</span>
+          <span className="title">264(173) vs SriLanks on Nov 13, 2014</span>
         </div>
         <div className="intro">
           <img src={bat} style={{ height: 30, width: 17 }} />
-          <span className="title">{timeLineData[4]}</span>
+          <span className="title">209(158) vs Australia on Nov 2, 2013</span>
         </div>
         <div className="intro">
           <img src={house} style={{ height: 30, width: 17 }} />
-          <span className="title">{timeLineData[5]}</span>
+          <span className="title">From Mumbai</span>
         </div>
         <div className="intro">
           <img src={heart} style={{ height: 30, width: 17 }} />
@@ -79,4 +94,3 @@ function Timeline({ name, timeLineData, id }) {
 }
 
 export default Timeline;
-

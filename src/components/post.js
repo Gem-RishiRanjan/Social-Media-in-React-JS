@@ -5,6 +5,7 @@ import commentz from "../images/comment.svg";
 import share from "../images/share.svg";
 import Modal from "./modal";
 import { useNavigate } from "react-router-dom";
+import {FiSend} from "react-icons/fi";
 import like3 from "../images/like3.png";
 import { db } from "./firebase";
 import "./post.css";
@@ -36,18 +37,31 @@ function Post({
   const commentElement = useRef(null);
   const [isLiked, setIsLiked] = useState(false);
   const [postComments, setPostComments] = useState([]);
+  const [commentUser, setCommentUser] = useState([]);
 
+  // console.log(loginid)
   function increase() {
+
+    const userDoc = doc(db, "all Posts", comid);
+    const newField = {likeCount: likeCount+1};
+     updateDoc(userDoc, newField);
+
+
+
     setCount(count + 1);
     setIsLiked(true);
   }
 
   function decrease() {
+    const userDoc = doc(db, "all Posts", comid);
+    const newField = {likeCount: likeCount-1};
+     updateDoc(userDoc, newField);
     setCount(count - 1);
     setIsLiked(false);
   }
 
-  const [modalComment, setModalComment] = useState(false);
+  const [modalComment, setModalComment] = useState(true);
+  var loggedInPerson = 0;
 
   const usersCollectionRef = collection(db, "all Posts", comid, "comment");
 
@@ -63,8 +77,24 @@ function Post({
     getPosts();
   }, []);
 
+  const usersCollectionRefer = collection(db, "allUsers");
   useEffect(() => {
-    console.log(postComments);
+    const getAllUsers = async () => {
+      onSnapshot(usersCollectionRefer, (data) => {
+        setCommentUser(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      });
+    };
+    getAllUsers();
+  }, []);
+
+  commentUser
+    .filter((people) => people.loginId == loginid)
+    .map((filPer) => {
+      loggedInPerson = filPer;
+    });
+
+  useEffect(() => {
+    // console.log(postComments);
   }, [postComments]);
 
   const showcom = [];
@@ -76,7 +106,7 @@ function Post({
 
     nameElement.current.value = "";
     commentElement.current.value = "";
-    setModalComment(false);
+    setModalComment(true);
   };
 
   {
@@ -92,6 +122,8 @@ function Post({
       </div>
     );
 
+    console.log(postComments);
+
     return (
       <div className="postbody">
         <div>
@@ -101,10 +133,8 @@ function Post({
               onClick={() => navigate(`/profile/${postedBy}`)}
             >
               {name}
-            </button>
-            {" "}
-            {date}{" "}
-            {time}
+            </button>{" "}
+            {date} {time}
           </div>
           <button onClick={() => showModal(true)} style={{ border: "none" }}>
             <img className="post5" src={imgsrc} />
@@ -138,7 +168,10 @@ function Post({
               )}
               &nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button className="post6" onClick={() => setModalComment(!modalComment)}>
+              <button
+                className="post6"
+                onClick={() => setModalComment(modalComment)}
+              >
                 <img
                   src={commentz}
                   style={{ height: "25px", marginRight: "2px" }}
@@ -146,10 +179,10 @@ function Post({
                 &nbsp;Comment
               </button>
               &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button className="post6">
-                <img src={share} style={{ height: "25px" }} />
-                &nbsp;Share
-              </button>
+                {/* <button className="post6" onClick = {()=>{alert("Share functionality in testing phase, soon it will be live")}}>
+                  <img src={share} style={{ height: "25px" }} />
+                  &nbsp;Share
+                </button> */}
             </div>
           </div>
         </div>
@@ -159,12 +192,14 @@ function Post({
               type="text"
               placeholder="Id(101, 102,103)"
               ref={nameElement}
-              value={loginid}
+              value={loggedInPerson.name}
               hidden
             />
             <br />
-            <input type="text" placeholder="Comment" ref={commentElement} />
-            <button onClick={finalize}>Comment</button>
+            <input className="post11" type="text" placeholder="Please type your comments here" ref={commentElement} />
+            <button className="post12" onClick={finalize}>
+            <FiSend className="post12"/>
+            </button>
           </div>
         ) : (
           <div></div>
@@ -173,7 +208,7 @@ function Post({
           <div className="post10">{showcom}</div>
         </div>
 
-        {modal && (
+        {modal && postComments && (
           <Modal showModal={showModal} props={imgsrc} comment={postComments} />
         )}
       </div>

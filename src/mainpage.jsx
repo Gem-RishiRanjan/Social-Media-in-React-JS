@@ -1,29 +1,25 @@
-import './App.css';
-import Homepage from './components/homepage';
-import Landingpage from './landingpage';
-import {useNavigate} from 'react-router-dom';
+import "./App.css";
+import Landingpage from "./landingpage";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-function Mainpage(){
-    const navigate = useNavigate();
+function Mainpage() {
+  const navigate = useNavigate();
 
-    const logg = localStorage.getItem("islogin");
-    if(logg == 1){
-        return(
-            <div><Homepage /></div>
-        );
-    }else{
-        
-        return(
-            
-            <Landingpage />
-        );
+  const logg = localStorage.getItem("islogin");
+  const userLoggedIn = localStorage.getItem("userLoggedIn");
+
+  useEffect(() => {
+    if (logg == 1) {
+      console.log(logg);
+      navigate(`/homepage/${userLoggedIn}`);
     }
+  });
 
+  if (logg == 0) {
+    return <Landingpage />;
+  }
 
-
-    return(
-        <></>
-
-    );
+  return <></>;
 }
 export default Mainpage;

@@ -3,16 +3,17 @@ import "./modal.css";
 import { allUsers } from "./data";
 
 function Modal({ showModal, props, comment }) {
+  console.log(comment);
   const listItems = comment.map((element) => {
     return (
       <div className="modal1">
-        {allUsers
+        {/* {allUsers
           .filter((people) => people.id == element.commentBy)
-          .map((filPer) => (
-            <div className="modal2">{filPer.name}</div>
-          ))}
+          .map((filPer) => ( */}
+            <div className="modal2">{element.data.commentBy}</div>
+          {/* ))} */}
 
-        <div className="modal3">{element.commentText}</div>
+        <div className="modal3">{element.data.commentText}</div>
       </div>
     );
   });
