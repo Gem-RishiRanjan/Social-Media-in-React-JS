@@ -121,6 +121,7 @@ function Login({}) {
         // console.log(filteredId[0].loginId);
 
         localStorage.setItem("islogin", 1);
+        localStorage.setItem("userLoggedIn", loginIndex);
         navigate(`/homepage/${loginIndex}`);
       } else {
         alert("Invalid credentials");

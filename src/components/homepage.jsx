@@ -18,6 +18,7 @@ import { collection, onSnapshot } from "firebase/firestore";
 function Homepage() {
   const navigate = useNavigate();
   const { loginid } = useParams();
+  console.log(loginid);
   const usersCollectionRef = collection(db, "all Posts");
 
   const [modal, showModal] = useState(false);
@@ -60,7 +61,7 @@ function Homepage() {
         <div className="home1">
           <img className="home2" src={data.image} />
 
-          <span className="home4">{" "}{data.text}</span>
+          <span className="home4"> {data.text}</span>
         </div>
       );
     });
@@ -74,23 +75,16 @@ function Homepage() {
       <br />
       <br />
       <div className="sides">
-        <div className="leftbody">
-          {leftsidedata}
+        {/* Left Body */}
 
-          <div className="home1">
-            <span className="home3">Ad . Group . Page</span>
-            <br />
-            <span className="home3">Event . Fundraiser</span>
-          </div>
-        </div>
 
         <div className="body">
           {posts.map((e, index) => {
             return (
               <div key={index}>
-                <Post 
-                // data = {e}
-                
+                <Post
+                  
+
                   name={e.name}
                   date={e.date}
                   time={e.time}
@@ -106,7 +100,6 @@ function Homepage() {
         </div>
       </div>
       <div></div>
-      
     </div>
   );
 }

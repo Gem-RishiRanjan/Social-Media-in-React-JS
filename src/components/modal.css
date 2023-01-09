@@ -10,6 +10,7 @@
     height: 100%;
     /* border: 10px solid #73AD21; */
     background:rgba(249, 248, 248, 0.8); 
+    /* z-index: 1; */
 }
 
 .modal-container{
@@ -84,11 +85,11 @@
 }
 
 .modal6{
-    position: fixed;
+    /* position: fixed; */
     top: 46;
-    right: 66;
-    height: 30;
-    width: 30;
+    float: right;
+    height: 30px;
+    /* width: 30; */
     border-radius: 45;
     background-color: black;
     color: white;

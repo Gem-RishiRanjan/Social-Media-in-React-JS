@@ -22,8 +22,10 @@ function Signup() {
   const passwordElement = useRef(null);
   const phoneElement = useRef(null);
   const confirmPasswordElement = useRef(null);
+  const nameElement = useRef(null);
 
   const usersCollectionRef = collection(db, "loginDetails");
+  const usersProfileRef = collection(db, "allUsers");
 
   function isValidEmail(email) {
     return /\S+@\S+\.\S+/.test(email);
@@ -80,10 +82,23 @@ function Signup() {
       isValidPassword(confirmPasswordElement.current.value)
     ) {
       const createUser = async () => {
+        const newLoginId = Math.floor(Math.random() * 100) + 300;
+
         await addDoc(usersCollectionRef, {
-          loginId: Math.floor(Math.random() * 101) + 100,
+          loginId: newLoginId,
           email: emailElement.current.value,
           password: confirmPasswordElement.current.value,
+        });
+
+        await addDoc(usersProfileRef, {
+          aboutData: [],
+          coverpic: "",
+          dp: "",
+          loginId: newLoginId,
+          myFriends: [],
+          myposts: [],
+          name: nameElement.current.value,
+          timeLineData: [],
         });
       };
 
@@ -105,7 +120,12 @@ function Signup() {
         <div className="signup1">
           <img className="signup2" src={NameIcon} />
           &nbsp;&nbsp;&nbsp;
-          <input className="signup3" type="text" placeholder="First Name" />
+          <input
+            className="signup3"
+            type="text"
+            placeholder="First Name"
+            ref={nameElement}
+          />
         </div>
 
         <div className="signup4">
@@ -186,14 +206,14 @@ function Signup() {
         <br />
         <br />
         <br />
-        <div>
+        {/* <div>
           <hr style={{ width: "47%", float: "left", marginTop: "2.3%" }} />
           OR
           <hr style={{ width: "47%", float: "right", marginTop: "2.3%" }} />
-        </div>
+        </div> */}
         <br />
 
-        <div>
+        {/* <div>
           <button className="signup15">Continue with Facebook</button>
         </div>
         <br />
@@ -201,7 +221,7 @@ function Signup() {
         <br />
         <div>
           <button className="signup16">Continue with Twitter</button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -3,7 +3,7 @@
     height: 50px;
     background-color: darkblue;
 
-    width: 200%;
+    width: 110%;
 }
 
 .header1{
@@ -51,4 +51,8 @@
    max-height: 25px; 
    margin-top: 8px;
    margin-left: 20px;
+}
+
+.header7{
+    display: none;
 }
