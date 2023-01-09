@@ -10,31 +10,27 @@ import { db } from "./firebase";
 import { collection, onSnapshot } from "firebase/firestore";
 
 function Profile() {
-  const [check, setCheck] = useState("1");
+  const [section, setSection] = useState("1");
   const [allUsers, setAllUsers] = useState([]);
   const usersCollectionRef = collection(db, "allUsers");
 
   const { id } = useParams();
-  console.log(id);
-  var abcd = 0;
+
+  var currentUser = 0;
   useEffect(() => {
     const getAllUsers = async () => {
       onSnapshot(usersCollectionRef, (data) => {
         setAllUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       });
     };
-    if (getAllUsers()) {
-      alert("useEffect working");
-    }
+    getAllUsers();
   }, []);
-  console.log(allUsers);
+
   allUsers
     .filter((people) => people.loginId == id)
     .map((filPer) => {
-      abcd = filPer;
+      currentUser = filPer;
     });
-
-  console.log(abcd);
 
   return (
     <div>
@@ -42,23 +38,26 @@ function Profile() {
 
       <div className="profile">
         <div className="image">
-          <img src={abcd.coverpic} style={{ height: "100%", width: "100%" }} />
-          <img className="profile1" src={abcd.dp} />
-          <span className="profile2">{abcd.name}</span>
+          <img
+            src={currentUser.coverpic}
+            style={{ height: "100%", width: "100%" }}
+          />
+          <img className="profile1" src={currentUser.dp} />
+          <span className="profile2">{currentUser.name}</span>
           <br />
         </div>
         <div className="about">
-          <button className="timeline" onClick={() => setCheck("1")}>
+          <button className="timeline" onClick={() => setSection("1")}>
             Timeline
           </button>
-          <button className="timeline" onClick={() => setCheck("2")}>
+          <button className="timeline" onClick={() => setSection("2")}>
             {" "}
             About{" "}
           </button>
-          <button className="timeline" onClick={() => setCheck("3")}>
+          <button className="timeline" onClick={() => setSection("3")}>
             Friends
           </button>
-          <button className="timeline" onClick={() => setCheck("4")}>
+          <button className="timeline" onClick={() => setSection("4")}>
             Photos
           </button>
           <button className="timeline">More</button>
@@ -66,19 +65,19 @@ function Profile() {
         <br />
         <div className="details">
           {(() => {
-            switch (check) {
+            switch (section) {
               case "1":
                 return (
                   <Timeline
-                    name={abcd.name}
-                    timeLineData={abcd.timeLineData}
-                    loginid={abcd.loginId}
+                    name={currentUser.name}
+                    timeLineData={currentUser.timeLineData}
+                    loginid={currentUser.loginId}
                   />
                 );
               case "2":
-                return <About aboutData={abcd.aboutData} />;
+                return <About aboutData={currentUser.aboutData} />;
               case "3":
-                return <Friends myFriends={abcd.myFriends} />;
+                return <Friends myFriends={currentUser.myFriends} />;
               case "4":
                 return <Photos />;
             }

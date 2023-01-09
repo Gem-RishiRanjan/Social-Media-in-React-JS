@@ -1,11 +1,10 @@
-
 import React, { useState, useEffect } from "react";
-import fb from "./face.png";
+import fb from "../images/face.png";
 import "./homepageheader.css";
-import search from "./search.webp";
-import request from "./request.png";
-import messenger from "./messenger.png";
-import bell from "./bell.png";
+import search from "../images/search.webp";
+import request from "../images/request.png";
+import messenger from "../images/messenger.png";
+import bell from "../images/bell.png";
 import { useNavigate } from "react-router-dom";
 import { db } from "./firebase";
 import { collection, onSnapshot } from "firebase/firestore";
@@ -13,7 +12,7 @@ import { collection, onSnapshot } from "firebase/firestore";
 function Homepageheader({ loginid }) {
   const [allUsers, setAllUsers] = useState([]);
   const navigate = useNavigate();
-  var abcd = 0;
+  var loggedInPerson = 0;
 
   const usersCollectionRef = collection(db, "allUsers");
 
@@ -29,31 +28,25 @@ function Homepageheader({ loginid }) {
   allUsers
     .filter((people) => people.loginId == loginid)
     .map((filPer) => {
-      abcd = filPer;
+      loggedInPerson = filPer;
     });
 
   return (
     <div className="mainheader">
-      <img
-        src={fb}
-        style={{ maxHeight: "25px", marginTop: "8px", marginLeft: "20px" }}
-      />
-      &nbsp;&nbsp;&nbsp;&nbsp;
+      <img className="header6" src={fb} />
+
       <input className="header1" type="text" placeholder="Search" />
       <img className="header2" src={search} />
-      &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;
+
       <button
         className="header3"
-        onClick={() => navigate(`/profile/${abcd.loginId}`)}
+        onClick={() => navigate(`/profile/${loggedInPerson.loginId}`)}
       >
-        {abcd.name}
+        {loggedInPerson.name}
       </button>
       <button
         className="header4"
-        onClick={() => navigate(`/homepage/${abcd.loginId}`)}
+        onClick={() => navigate(`/homepage/${loggedInPerson.loginId}`)}
       >
         Home
       </button>
@@ -75,4 +68,3 @@ function Homepageheader({ loginid }) {
 }
 
 export default Homepageheader;
-

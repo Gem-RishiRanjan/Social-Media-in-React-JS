@@ -1,17 +1,17 @@
-import src1 from "./src1.jfif";
-import src2 from "./src2.jpg";
-import src3 from "./src3.jfif";
-import src4 from "./src4.jpg";
-import img1 from "./img1.webp";
-import img2 from "./img2.webp";
-import virat from "./virat.jfif";
-import dhoni from "./dhoni.jpg";
-import rohit from "./rohit.jfif";
-import cover from "./cover.jpg";
-import d1 from "./d1.jfif";
-import d2 from "./d2.jfif";
-import r1 from "./r1.jfif";
-import r2 from "./r2.jfif";
+import stadium from "../images/src1.jfif";
+import viratBatting from "../images/src2.jpg";
+import dhoniBatting from "../images/src3.jfif";
+import dhoniBatting2 from "../images/src4.jpg";
+import dhoniAndVirat from "../images/img1.webp";
+import teamLunch from "../images/img2.webp";
+import virat from "../images/virat.jfif";
+import dhoni from "../images/dhoni.jpg";
+import rohit from "../images/rohit.jfif";
+import cover from "../images/cover.jpg";
+import dhoniPost1 from "../images/d1.jfif";
+import dhoniPost2 from "../images/d2.jfif";
+import rohitPost1 from "../images/r1.jfif";
+import rohitPost2 from "../images/r2.jfif";
 
 const allPosts = [
   {
@@ -19,7 +19,7 @@ const allPosts = [
     name: "Dhoni",
     date: "01-Dec-2022",
     time: "5:00 pm",
-    imgsrc: src1,
+    imgsrc: stadium,
     likeCount: 20,
     comment: [
       { commentBy: 102, commentText: "Good Stadium" },
@@ -34,7 +34,7 @@ const allPosts = [
     name: "Rohit",
     date: "02-Dec-2022",
     time: "5:00 pm",
-    imgsrc: src2,
+    imgsrc: viratBatting,
     likeCount: 30,
     comment: [
       { commentBy: 102, commentText: "Good Batting" },
@@ -49,7 +49,7 @@ const allPosts = [
     name: "Dhoni",
     date: "03-Dec-2022",
     time: "5:00 pm",
-    imgsrc: src3,
+    imgsrc: dhoniBatting,
     likeCount: 40,
     comment: [
       { commentBy: 101, commentText: "Good captainship" },
@@ -64,7 +64,7 @@ const allPosts = [
     name: "Virat",
     date: "04-Dec-2022",
     time: "5:00 pm",
-    imgsrc: src4,
+    imgsrc: dhoniBatting2,
     likeCount: 50,
     comment: [
       { commentBy: 103, commentText: "Good class" },
@@ -79,9 +79,9 @@ export const allUsers = [
   {
     id: 101,
     name: "Dhoni",
-    coverpic: src3,
+    coverpic: dhoniBatting,
     dp: dhoni,
-    myposts: [d1, d2],
+    myposts: [dhoniPost1, dhoniPost2],
     myFriends: [102, 103],
     timeLineData: [
       "Professional Cricketer",
@@ -109,7 +109,7 @@ export const allUsers = [
     name: "Virat",
     coverpic: cover,
     dp: virat,
-    myposts: [img1, img2],
+    myposts: [dhoniAndVirat, teamLunch],
     myFriends: [103, 101],
     timeLineData: [
       "Professional Cricketer",
@@ -135,9 +135,9 @@ export const allUsers = [
   {
     id: 103,
     name: "Rohit",
-    coverpic: img1,
+    coverpic: dhoniAndVirat,
     dp: rohit,
-    myposts: [r1, r2],
+    myposts: [rohitPost1, rohitPost2],
     myFriends: [102, 101],
     timeLineData: [
       "Professional Cricketer",

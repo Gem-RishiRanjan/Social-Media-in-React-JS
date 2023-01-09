@@ -1,12 +1,9 @@
-
 import React from "react";
-import intro from "./intro.svg";
-import suit from "./suit.svg";
-import bat from "./bat.png";
-import house from "./house.svg";
-import heart from "./heart.svg";
-import img1 from "./img1.webp";
-import img2 from "./img2.webp";
+import intro from "../images/intro.svg";
+import suit from "../images/suit.svg";
+import bat from "../images/bat.png";
+import house from "../images/house.svg";
+import heart from "../images/heart.svg";
 import "./timeline.css";
 import allPosts from "./data";
 import Post from "./post";

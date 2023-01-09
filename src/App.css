@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+.land0{
+  float: right; 
+  margin-right: 20%;
+  margin-top: 3%;
+}
+.land1{
+  
+  margin-top: 5px;
+  font-size: 25px;
+  color: #0b2fe6;
+  background-color: transparent;
+  border: none;
+
+}
+
+.land2{
+  margin-top: 5px;
+  font-size: 25px;
+  color: #8596ed;
+  background-color: transparent;
+  border: none;
+}
+
+.land3{
+  font-size: 25px;
+  color: #8596ed;
+  background-color: transparent;
+  border: none;
+}
+
+.land4{
+  font-size: 25px;
+  color: #0b2fe6;
+  background-color: transparent;
+  border: none;
+}

@@ -12,6 +12,7 @@
     width: 200px;
     height: 40px;
     padding: 10px;
+    margin-left: 20px;
 }
 
 .header2{
@@ -19,12 +20,13 @@
     margin-top: 9px;
     background-color: ghostwhite;
     padding: 2px;
+    
 }
 
 .header3{
     color: white;
     margin-top:8px;
-    margin-left: 200px;
+    margin-left: 400px;
     font-weight: bold;
     background-color: transparent;
     border: none;
@@ -43,4 +45,10 @@
     margin-top: 15px;
     margin-left: 40px; 
 
+}
+
+.header6{
+   max-height: 25px; 
+   margin-top: 8px;
+   margin-left: 20px;
 }
