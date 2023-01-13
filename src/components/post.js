@@ -39,7 +39,7 @@ function Post({
   const [postComments, setPostComments] = useState([]);
   const [commentUser, setCommentUser] = useState([]);
 
-  // console.log(loginid)
+  
   function increase() {
 
     const userDoc = doc(db, "all Posts", comid);
@@ -71,11 +71,27 @@ function Post({
       await onSnapshot(usersCollectionRef, async (data) => {
         data.docs.map((doc) => {
           setPostComments([...postComments, { data: doc.data(), id: doc.id }]);
+          console.log(postComments);
         });
       });
     };
     getPosts();
   }, []);
+
+
+// console.log(usersCollectionRef);
+//   useEffect(() => {
+//     const getPosts = async () => {
+//       onSnapshot(usersCollectionRef, (data) => {
+//         setPostComments(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+//       });
+//     };
+//     getPosts();
+//   }, []);
+
+  useEffect(() => {
+    console.log(postComments);
+  }, [postComments]);
 
   const usersCollectionRefer = collection(db, "allUsers");
   useEffect(() => {
@@ -93,9 +109,7 @@ function Post({
       loggedInPerson = filPer;
     });
 
-  useEffect(() => {
-    // console.log(postComments);
-  }, [postComments]);
+
 
   const showcom = [];
   const finalize = async () => {
@@ -122,7 +136,7 @@ function Post({
       </div>
     );
 
-    console.log(postComments);
+
 
     return (
       <div className="postbody">

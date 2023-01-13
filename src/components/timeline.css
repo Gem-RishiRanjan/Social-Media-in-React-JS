@@ -1,33 +1,92 @@
-.time{
-    display :flex;
-    flex: 1;
-
-    
-
+.time {
+  display: flex;
+  /* justify-content: space-around; */
 }
-.intro{
-    /* display: flex;
-    flex: 0.3; */
-    background-color: #edf2f7;
-
-    /* /* height: 100px; */
-    width: 350px;
-    scroll-behavior: smooth;
-    padding-left: 15px;
-    padding-top: 10px    ;
-    border-radius: 5px;
-
-    margin-right: 10px;
-
-
-    
+.intro {
+  padding-top: 10px;
 }
-.title{
-    padding-left: 10px;
-    bottom: 20px;
-    /* font-weight: bold; */
+.title {
+  padding-left: 10px;
+
+  font-weight: bold;
+}
+.inlinetitle {
+  color: darkblue;
+}
+
+.time1 {
+    display: flex;
+}
+.time2 {
+  background-color: #edf2f7;
+  padding: 2%;
+  border-radius: 5px;
+  margin-left: -250px;
+  margin-top: 25px;
+  width: 55%;
+  height: 55%;
+  /* position: absolute; */
+}
+
+.sidetitle {
+  /* margin-right: 100%; */
+  width: 63%;
+  /* margin-left: -90px; */
+}
+
+.time3{
+    position: absolute;
+    width: 60%; 
+    height: 100%;
+    border: 7px solid rgb(17, 17, 140);
+    background:rgba(249, 248, 248, 0.8); 
+    border-radius: 1%;
+    margin-left: -8%;
+}
+.time4{
+    padding-left: 35%;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.time5{
+    padding-left: 5%;
+    font-size: 20px;
+    margin-top: 5%;
+    font-weight: bold;
+}
+.time6{
+    padding-left: 4%;
     font-size: 15px;
+    background-color: transparent;
+    /* font-weight: bold; */
 }
-.inlinetitle{
-    color: darkblue;
+.time7{
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    /* background-color: red; */
+    display: inline-block;
+    background-color: transparent;
+}
+
+.time9{
+    margin-left: 30%;
+    background-color: transparent;
+}
+
+.time10{
+    margin-left: 45.5%;
+    background-color: transparent;
+}
+
+.time11{
+    margin-left: 38%;
+    background-color: transparent;
+}
+
+.time12{
+    margin-left: 40%;
+    background-color: transparent;
 }

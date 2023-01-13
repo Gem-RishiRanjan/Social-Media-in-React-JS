@@ -3,7 +3,7 @@ import "./modal.css";
 import { allUsers } from "./data";
 
 function Modal({ showModal, props, comment }) {
-  console.log(comment);
+  
   const listItems = comment.map((element) => {
     return (
       <div className="modal1">

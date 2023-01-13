@@ -1,0 +1,59 @@
+.ff5{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(251, 251, 251);
+    
+}
+
+.ff1{
+    padding:  2%;
+    padding-bottom: 0.5%;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(13, 171, 224);
+}
+
+.ff2{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ff3{
+    width: 200px;
+    height: 250px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 2%;
+    background-color: #edf2f7; 
+}
+.ff4{
+    width: 95%;
+    height: 65%;
+    /* border: 2px solid black; */
+    border-radius: 5px;
+    margin: 2%;
+}
+
+.ff6{
+    width: 95%;
+    /* height: 75%; */
+    /* border: 2px solid black; */
+    border-radius: 5px;
+    margin: 2%;
+}
+
+.ff7{
+    width: 95%;
+    /* height: 75%; */
+    /* border: 2px solid black; */
+    border-radius: 5px;
+    margin: 3%;
+    margin-left: 30%;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.ff8{
+    position: fixed;
+}
+

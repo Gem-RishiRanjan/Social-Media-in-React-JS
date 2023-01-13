@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 function Mainpage() {
+  
   const navigate = useNavigate();
 
   const logg = localStorage.getItem("islogin");

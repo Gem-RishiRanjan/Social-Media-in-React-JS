@@ -94,10 +94,12 @@ function Signup() {
           aboutData: [],
           coverpic: "",
           dp: "",
+          lastName:"",
           loginId: newLoginId,
           myFriends: [],
           myposts: [],
           name: nameElement.current.value,
+          notification: false,
           timeLineData: [],
         });
       };

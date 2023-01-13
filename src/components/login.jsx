@@ -6,16 +6,8 @@ import "./style.css";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { db } from "./firebase";
-import {
-  collection,
-  getDocs,
-  setDoc,
-  doc,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  onSnapshot,
-} from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
+import { async } from "@firebase/util";
 
 function Login({}) {
   const [error, setError] = useState(null);
@@ -26,9 +18,10 @@ function Login({}) {
   const passwordElement = useRef(null);
   const islogin = false;
   const [storedLogins, setStoredLogins] = useState([]);
+  
 
   var loginIndex = 0;
-
+  
   const usersCollectionRef = collection(db, "loginDetails");
 
   useEffect(() => {
@@ -108,7 +101,9 @@ function Login({}) {
       isValidEmail(emailElement.current.value) &&
       isValidPassword(passwordElement.current.value)
     ) {
-      if (checklogin(emailElement.current.value, passwordElement.current.value)) {
+      if (
+        checklogin(emailElement.current.value, passwordElement.current.value)
+      ) {
         const filteredId = storedLogins.filter((element) => {
           if (element.email === emailElement.current.value) {
             return true;
@@ -117,8 +112,10 @@ function Login({}) {
           return false;
         });
 
+        
         loginIndex = filteredId[0].loginId;
-        // console.log(filteredId[0].loginId);
+
+
 
         localStorage.setItem("islogin", 1);
         localStorage.setItem("userLoggedIn", loginIndex);
@@ -138,8 +135,8 @@ function Login({}) {
         <br />
         <br />
         <div className="login4">
-          <img className="login5" src={emailIcon} /> 
-          
+          <img className="login5" src={emailIcon} />
+
           <input
             className="login6"
             type="email"
@@ -155,7 +152,7 @@ function Login({}) {
 
         <div className="login8">
           <img className="login9" src={passwordIcon} />
-         
+
           <input
             className="login10"
             type="password"

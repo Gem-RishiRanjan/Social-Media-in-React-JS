@@ -11,6 +11,7 @@ import {
 import Resetpassword from './components/resetpassword';
 import Homepage from './components/homepage';
 import Signup from './components/signup';
+import Findfriends from './components/findfriends';
 
 function App(){
   return(
@@ -24,6 +25,7 @@ function App(){
       <Route path = "/homepage/:loginid" element={<Homepage />} />
       <Route path = "/signup" element={<Signup />} />
       <Route path = "/profile/:id" element={<Profile />} />
+      <Route path = "/findfriends" element = {<Findfriends />} />
     
 
       
