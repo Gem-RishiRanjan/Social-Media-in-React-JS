@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import { db } from "./firebase";
 import { collection, onSnapshot } from "firebase/firestore";
 import { async } from "@firebase/util";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Login({}) {
   const [error, setError] = useState(null);
@@ -119,9 +121,12 @@ function Login({}) {
 
         localStorage.setItem("islogin", 1);
         localStorage.setItem("userLoggedIn", loginIndex);
+
         navigate(`/homepage/${loginIndex}`);
       } else {
-        alert("Invalid credentials");
+        toast.error("Invalid Credentials", {
+          position:"top-center"
+        });
       }
     }
   };
@@ -181,6 +186,7 @@ function Login({}) {
           </span>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

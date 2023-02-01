@@ -13,7 +13,7 @@
     height: 40px;
     margin-left: 20px;
     border: 2px solid black;
-    padding-left: 30px;
+    padding-left: 10px;
     border-radius: 8px;
 }
 
@@ -102,11 +102,11 @@
 }
 
 .header13{
-    height: 85vh;
+    height: inline;
     width: 40vw;
     border: 2px solid black;
     margin-left: 62%;
-    background-color: grey;
+    background-color: #edf2f7;   ;
     /* background:rgba(249, 248, 248, 0.8); */
     /* border-radius: 5%; */
     overflow-x: hidden;
@@ -115,14 +115,57 @@
 
 .header14{
     height: 60px;
-    margin-top: 1%;
-    background-color: rgb(244, 232, 232);
+    margin: 1%;
+    background-color: #ebecee;   
     /* background: rgb(203, 198, 198); */
-    padding: 5px;
+    padding: 10px;
     /* border: 2px solid black; */
     /* border-radius: 5%; */
 
     border: 2px solid black;
     /* padding: 10px; */
     /* border-radius: 15px; */
+}
+
+.header15{
+    /* position: absolute; */
+    background-color: grey;
+    z-index: 1;
+    border: 2px solid red;
+    width: 300px;
+    height: 500px;
+    /* visibility: visible; */
+    /* overflow: hidden; */
+}
+
+.header16{
+    float: left;
+}
+
+.header17{
+    float: right;
+    margin-right: 10%;
+    height : 30px;
+}
+
+.header18{
+    border: 2px solid black;
+    height: inline;
+    width: 270px;
+    margin-left: 22%;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.header19{
+    border: 2px solid #edf2f7;
+    border-bottom: 1px solid grey;
+    height: 15%;
+    padding: 4%;
+    font-weight: bold;
+    width: 100%;
+    background-color: #edf2f7;
+ 
 }

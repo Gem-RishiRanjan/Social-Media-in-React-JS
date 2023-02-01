@@ -1,14 +1,17 @@
 .home{
     display:flex;
     flex-direction: column;
-
+    /* border: 2px solid green; */
     background-color:white;
     position: absolute;
+   
 
 }
 
 .sides{
     display: flex;
+    width: 150%;
+    
 
 }
 .leftbody{
@@ -27,16 +30,19 @@
     flex: 0.5;
     flex-direction: column;
 
-    justify-content: center;
-    margin-left: 55%;
-    width: 100%;
+    /* justify-content: center; */
+    margin-left: 33%;
+    /* width: 100%; */
 }
 
 .rightbody{
-    margin-top: 20%;
-    margin-left: 10%;
-    /* display: flex;
-    flex: 0.25;*/
+    margin-top: 3.7%;
+    margin-left: 73%;
+    width: 350px;
+    position: fixed;
+    /* padding-left: 5%; */
+    z-index: -1;
+    /* height:550px; */
 }
 
 .home1{
@@ -80,10 +86,13 @@
 
     padding:10px;
     font-weight: bold;
+    
 }
 
 .home7{
+    /* position: relative; */
     background-color: #edf2f7;
+   
     margin: 20px;
     margin-top: 50px;
     /* padding:20px 20px; */
@@ -91,6 +100,7 @@
     padding: 10px;
     border-radius: 10px;
     width: 300px;
+    
     
 }
 
@@ -143,5 +153,35 @@
 }
 
 .home14{
+    padding-left: 10px;
+    padding-bottom: 15px;
+    font-size: small;
+    font-weight: bold;
+}
+.home15{
+    padding-left: 10px;
+    padding-bottom: 15px;
+    font-weight: bold;
+    color: blue;
+    font-size: large;
+}
+
+.home16{
+    height: 450px;
+    overflow-y: scroll; 
+    border: 2px solid #edf2f7;
+}
+
+.home17{
+    margin-top: 25px;
     position: fixed;
+    width: 26%;
+    border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.home18{
+    display: none;
 }

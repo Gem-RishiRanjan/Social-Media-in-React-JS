@@ -10,6 +10,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { db } from "./firebase";
 import { collection, addDoc } from "firebase/firestore";
 
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Signup() {
   const [error, setError] = useState(null);
   const [phoneerror, setPhoneError] = useState(null);
@@ -23,6 +27,7 @@ function Signup() {
   const phoneElement = useRef(null);
   const confirmPasswordElement = useRef(null);
   const nameElement = useRef(null);
+  const lastNameElement = useRef(null);
 
   const usersCollectionRef = collection(db, "loginDetails");
   const usersProfileRef = collection(db, "allUsers");
@@ -94,19 +99,23 @@ function Signup() {
           aboutData: [],
           coverpic: "",
           dp: "",
-          lastName:"",
+          lastName:lastNameElement.current.value,
           loginId: newLoginId,
           myFriends: [],
           myposts: [],
           name: nameElement.current.value,
           notification: false,
+          sentRequest :[],
           timeLineData: [],
         });
       };
 
       createUser();
 
-      navigate("/mainpage");
+      toast.success("Account created successfully", {
+        position: "bottom-left",
+      })
+      // navigate("/mainpage");
     }
   };
 
@@ -133,7 +142,7 @@ function Signup() {
         <div className="signup4">
           <img className="signup5" src={NameIcon} />
           &nbsp;&nbsp;&nbsp;
-          <input className="signup6" type="text" placeholder="Last Name" />
+          <input className="signup6" type="text" placeholder="Last Name" ref={lastNameElement} />
         </div>
         <br />
         <br />
@@ -225,6 +234,7 @@ function Signup() {
           <button className="signup16">Continue with Twitter</button>
         </div> */}
       </div>
+      <ToastContainer />
     </div>
   );
 }

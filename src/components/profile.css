@@ -219,6 +219,7 @@
 .profile20{
     /* width: 80%; */
     position: fixed;
+    z-index: 1;
 }
 .profile21{
     margin-top: 5%;

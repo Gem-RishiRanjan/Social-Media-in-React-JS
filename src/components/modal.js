@@ -10,10 +10,10 @@ function Modal({ showModal, props, comment }) {
         {/* {allUsers
           .filter((people) => people.id == element.commentBy)
           .map((filPer) => ( */}
-            <div className="modal2">{element.data.commentBy}</div>
+            <div className="modal2">{element.commentBy}</div>
           {/* ))} */}
 
-        <div className="modal3">{element.data.commentText}</div>
+        <div className="modal3">{element.commentText}</div>
       </div>
     );
   });

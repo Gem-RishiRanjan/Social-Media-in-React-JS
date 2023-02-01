@@ -15,78 +15,99 @@
 }
 
 .time1 {
-    display: flex;
+  display: flex;
+  width: 120%;
+  /* margin-left: 200px; */
+  
 }
 .time2 {
   background-color: #edf2f7;
   padding: 2%;
   border-radius: 5px;
-  margin-left: -250px;
+  margin-left: -170px;
   margin-top: 25px;
-  width: 55%;
+  width: 45%;
   height: 55%;
-  /* position: absolute; */
+  /* position: fixed; */
+  /* border: 2px solid red; */
 }
 
 .sidetitle {
   /* margin-right: 100%; */
-  width: 63%;
+  /* width: 63%; */
   /* margin-left: -90px; */
 }
 
-.time3{
-    position: absolute;
-    width: 60%; 
-    height: 100%;
-    border: 7px solid rgb(17, 17, 140);
-    background:rgba(249, 248, 248, 0.8); 
-    border-radius: 1%;
-    margin-left: -8%;
+.time3 {
+  position: absolute;
+  width: 60%;
+  height: 70%;
+  border: 7px solid rgb(17, 17, 140);
+  background: rgba(249, 248, 248, 1);
+  border-radius: 1%;
+  margin-left: -8%;
+  padding-left: 5%;
 }
-.time4{
-    padding-left: 35%;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.time5{
-    padding-left: 5%;
-    font-size: 20px;
-    margin-top: 5%;
-    font-weight: bold;
-}
-.time6{
-    padding-left: 4%;
-    font-size: 15px;
-    background-color: transparent;
-    /* font-weight: bold; */
-}
-.time7{
-    border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
-    border-bottom-style: groove;
-    /* background-color: red; */
-    display: inline-block;
-    background-color: transparent;
+.time4 {
+  padding-left: 27%;
+  font-size: 30px;
+  font-weight: bold;
 }
 
-.time9{
-    margin-left: 30%;
-    background-color: transparent;
+.time5 {
+  padding-left: 5%;
+  font-size: 20px;
+  margin-top: 5%;
+  font-weight: bold;
+}
+.time6 {
+  padding-left: 4%;
+  font-size: 15px;
+  background-color: transparent;
+  /* font-weight: bold; */
+}
+.time7 {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  /* background-color: red; */
+  display: inline-block;
+  background-color: transparent;
+  margin-left: 7px;
 }
 
-.time10{
-    margin-left: 45.5%;
-    background-color: transparent;
+.time9 {
+  margin-left: 30%;
+  background-color: transparent;
 }
 
-.time11{
-    margin-left: 38%;
-    background-color: transparent;
+.time10 {
+  margin-left: 48%;
+  background-color: transparent;
 }
 
-.time12{
-    margin-left: 40%;
-    background-color: transparent;
+.time11 {
+  margin-left: 39.5%;
+  background-color: transparent;
+}
+
+.time12 {
+  margin-left: 42%;
+  background-color: transparent;
+}
+
+.time13 {
+  float: right;
+  margin-top: 5%;
+  margin-right: 3%;
+  width: 20%;
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.time14{
+  height: 15px;
+  width: 15px;
 }

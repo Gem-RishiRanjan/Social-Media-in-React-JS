@@ -2,6 +2,7 @@ import './App.css';
 import Mainpage from './mainpage';
 import Landingpage from './landingpage';
 import Profile from './components/profile';
+import Error from './components/error';
 import {
   BrowserRouter,
   Routes,
@@ -19,15 +20,15 @@ function App(){
     <Routes>
       <Route path = "/" element={<Mainpage />} />
 
-      <Route path = "/mainpage" element={<Mainpage />} />
-      <Route path = "/landingpage" element={<Landingpage />} />
-      <Route path = "/resetpassword" element={<Resetpassword />} />
-      <Route path = "/homepage/:loginid" element={<Homepage />} />
-      <Route path = "/signup" element={<Signup />} />
-      <Route path = "/profile/:id" element={<Profile />} />
-      <Route path = "/findfriends" element = {<Findfriends />} />
+      <Route exact path = "/mainpage" element={<Mainpage />} />
+      <Route exact path = "/landingpage" element={<Landingpage />} />
+      <Route exact path = "/resetpassword" element={<Resetpassword />} />
+      <Route exact path = "/homepage/:loginid" element={<Homepage />} />
+      <Route exact path = "/signup" element={<Signup />} />
+      <Route exact path = "/profile/:id" element={<Profile />} />
+      <Route exact path = "/findfriends" element = {<Findfriends />} />
     
-
+      <Route path="*" element = {<Error />} />
       
     </Routes>
   </BrowserRouter>
