@@ -220,13 +220,18 @@ function Homepage() {
             const userDoc = collection(db, "all Posts");
 
             const newPost = async () => {
+
+              var today = new Date();
+              var currentDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+              var currentTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+             
               const addPost = await addDoc(userDoc, {
-                date: "5-Jan-2023",
+                date: currentDate,
                 imgsrc: downloadURL,
                 likeCount: 0,
                 name: presentUser[0].name,
                 postedBy: presentUser[0].loginId,
-                time: "1:00pm",
+                time: currentTime,
                 timestamp: Date.now(),
               });
               // const newCollectionRef = collection(

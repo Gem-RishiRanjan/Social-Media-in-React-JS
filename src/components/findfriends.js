@@ -4,6 +4,7 @@ import cancelfriend from "../images/cancelfriend.png";
 import "./findfriends.css";
 import Homepageheader from "./homepageheader";
 import { db } from "./firebase";
+import dpDefault from "../images/dpDefault.jpg";
 import {
   addDoc,
   collection,
@@ -61,7 +62,11 @@ function Findfriends() {
       ) {
         newFriends.push(
           <div className="ff3">
-            <img src={e.dp} className="ff4" />
+            {e.dp?
+              <img src={e.dp} className="ff4" />
+              :
+              <img src={dpDefault} className="ff4" />
+              }
             <div className="ff7">
               {e.name} {e.lastName}
             </div>

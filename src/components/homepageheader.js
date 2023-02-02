@@ -8,6 +8,7 @@ import offline from "../images/online.png";
 import accept from "../images/accept.svg";
 import decline from "../images/decline.svg";
 import "./homepageheader.css";
+import dpDefault from "../images/dpDefault.jpg";
 import search from "../images/search.webp";
 import request from "../images/request.png";
 import messenger from "../images/messenger.png";
@@ -120,13 +121,23 @@ function Homepageheader({ loginid }) {
             const userDoc = collection(db, "all Posts");
 
             const newPost = async () => {
+
+
+              var today = new Date();
+              var currentDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+              var currentTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+             
+
+
+
+
               const addPost = await addDoc(userDoc, {
-                date: "5-Jan-2023",
+                date: currentDate,
                 imgsrc: downloadURL,
                 likeCount: 0,
                 name: loggedInPerson.name,
                 postedBy: loggedInPerson.loginId,
-                time: "1:00pm",
+                time: currentTime,
                 timestamp: Date.now(),
               });
               // const newCollectionRef = collection(
@@ -231,15 +242,7 @@ function Homepageheader({ loginid }) {
                   ""
                 )}
 
-                {e.type == 2 ? (
-                  <img
-                    className="header17"
-                    src={decline}
-                    onClick={() => deleteNot(e.id)}
-                  />
-                ) : (
-                  ""
-                )}
+                
               </div>
             </>
           );
@@ -290,9 +293,7 @@ function Homepageheader({ loginid }) {
             setSearchField(e.target.value);
           }}
           ref={searchInput}
-          onBlur={() => {
-            setSearchField("");
-          }}
+          
         />
         {/* <img className="header2" src={search} /> */}
         {/* <button
@@ -369,11 +370,19 @@ function Homepageheader({ loginid }) {
             }}
           />
 
-          <img
+            {
+              loggedInPerson.dp?
+              <img
             className="header10"
             src={loggedInPerson.dp}
             onClick={() => navigate(`/profile/${loggedInPerson.loginId}`)}
+          />:
+                    <img
+            className="header10"
+            src={dpDefault}
+            
           />
+            }
         </div>
       </div>
 

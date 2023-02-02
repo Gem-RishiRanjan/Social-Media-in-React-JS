@@ -174,9 +174,10 @@
 
 .home17{
     margin-top: 25px;
+    margin-left: 3.5%;
     position: fixed;
-    width: 26%;
-    border: 2px solid black;
+    width: 20%;
+    /* border: 2px solid black; */
   padding: 10px;
   border-radius: 10px;
   font-weight: bold;

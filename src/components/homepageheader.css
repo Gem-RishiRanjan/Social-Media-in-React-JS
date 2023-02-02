@@ -104,27 +104,25 @@
 .header13{
     height: inline;
     width: 40vw;
-    border: 2px solid black;
+    /* border: 2px solid red; */
     margin-left: 62%;
     background-color: #edf2f7;   ;
     /* background:rgba(249, 248, 248, 0.8); */
     /* border-radius: 5%; */
     overflow-x: hidden;
     overflow-y: auto;
+    border-radius: 10px;
 }
 
 .header14{
-    height: 60px;
+    height: 40px;
     margin: 1%;
-    background-color: #ebecee;   
+    background-color: white;   
+    font-weight: bold;
+    border-radius: 10px;
     /* background: rgb(203, 198, 198); */
     padding: 10px;
-    /* border: 2px solid black; */
-    /* border-radius: 5%; */
-
-    border: 2px solid black;
-    /* padding: 10px; */
-    /* border-radius: 15px; */
+    font-size: small;
 }
 
 .header15{
@@ -144,8 +142,8 @@
 
 .header17{
     float: right;
-    margin-right: 10%;
-    height : 30px;
+    margin-right: 13%;
+    height : 25px;
 }
 
 .header18{

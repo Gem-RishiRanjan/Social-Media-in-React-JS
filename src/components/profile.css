@@ -55,7 +55,7 @@
 .profile1{
     position: absolute;
     left: 21vw; 
-    bottom: 36vh;
+    bottom: 40vh;
     /* border: 1px solid grey; */
     height: 130px; 
     width: 130px;
@@ -100,7 +100,7 @@
 .profile4{
     position: absolute;
     left: 28vw;
-    bottom: 37vh;
+    bottom: 41vh;
     /* height: 20px;
     width: 50px; */
     /* border: none; */
@@ -202,7 +202,7 @@
 .profile17{
     width: 84%;
     margin-left: 10%;
-    margin-top: 4%;
+    margin-top: 2.5%;
     border: 1px solid black;
 }
 

@@ -87,7 +87,7 @@ function Signup() {
       isValidPassword(confirmPasswordElement.current.value)
     ) {
       const createUser = async () => {
-        const newLoginId = Math.floor(Math.random() * 100) + 300;
+        const newLoginId = Math.floor(Math.random() * 100) + 500;
 
         await addDoc(usersCollectionRef, {
           loginId: newLoginId,
@@ -97,6 +97,7 @@ function Signup() {
 
         await addDoc(usersProfileRef, {
           aboutData: [],
+          active: false,
           coverpic: "",
           dp: "",
           lastName:lastNameElement.current.value,
@@ -108,14 +109,20 @@ function Signup() {
           sentRequest :[],
           timeLineData: [],
         });
+
+
+        toast.success("Account created successfully", {
+          position: "top-center",
+        });
+  
+        window.location.reload();
+
       };
 
-      createUser();
+      createUser(); 
 
-      toast.success("Account created successfully", {
-        position: "bottom-left",
-      })
-      // navigate("/mainpage");
+     
+     
     }
   };
 
