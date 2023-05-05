@@ -9,9 +9,6 @@ import accept from "../images/accept.svg";
 import decline from "../images/decline.svg";
 import "./homepageheader.css";
 import dpDefault from "../images/dpDefault.jpg";
-import search from "../images/search.webp";
-import request from "../images/request.png";
-import messenger from "../images/messenger.png";
 import bell from "../images/bell.svg";
 import { useNavigate } from "react-router-dom";
 import { db } from "./firebase";
@@ -70,16 +67,14 @@ function Homepageheader({ loginid }) {
     getAllUsers();
   }, []);
 
-  // console.log(allUsers);
 
-  //  const getUser = async()=>{
   allUsers
     .filter((people) => people.loginId == loginid)
     .map((filPer) => {
       loggedInPerson = filPer;
     });
 
-  //  }
+  
 
   const getNotifications = () => {
     const queryRef = query(
@@ -140,16 +135,7 @@ function Homepageheader({ loginid }) {
                 time: currentTime,
                 timestamp: Date.now(),
               });
-              // const newCollectionRef = collection(
-              //   db,
-              //   "all Posts",
-              //   addPost.id,
-              //   "comment"
-              // );
-              // await addDoc(newCollectionRef, {
-              //   commentBy: "Shreyas",
-              //   commentText: "Nice",
-              // });
+              
             };
             newPost();
           });
@@ -187,7 +173,6 @@ function Homepageheader({ loginid }) {
       where("loginId", "==", parseInt(from))
     );
 
-    // console.log(from, to);
     onSnapshot(queryRef, (data) => {
       setToUser(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     });
@@ -196,7 +181,6 @@ function Homepageheader({ loginid }) {
   };
 
   const acceptRequest = () => {
-    // console.log(from, to);
     const userDoc = doc(db, "allUsers", loggedInPerson.id);
     updateDoc(userDoc, {
       myFriends: arrayUnion(fromNotify),
@@ -257,16 +241,13 @@ function Homepageheader({ loginid }) {
 
   const searchName = () => {
     setSearchArray([]);
-    // console.log(searchField)
     allUsers.filter((val) => {
       if (searchField == "") {
-        // console.log(val);
         return val;
       } else if (
         val.name.toLowerCase().startsWith(searchField.toLowerCase()) ||
         val.lastName.toLowerCase().startsWith(searchField.toLowerCase())
       ) {
-        // console.log(val.name);
         setSearchArray((oldVal) => {
           return [val, ...oldVal];
         });
@@ -274,8 +255,6 @@ function Homepageheader({ loginid }) {
     });
   };
 
-  // console.log(searchArray);
-  // console.log(searchField.length)
 
   return (
     <>
@@ -295,23 +274,12 @@ function Homepageheader({ loginid }) {
           ref={searchInput}
           
         />
-        {/* <img className="header2" src={search} /> */}
-        {/* <button
-          className="header3"
-          onClick={() => navigate(`/profile/${loggedInPerson.loginId}`)}
-        >
-          {loggedInPerson.name}
-        </button> */}
-        {/* <button
-          className="header4"
-          onClick={() => navigate(`/homepage/${loggedInPerson.loginId}`)}
-        > */}
+
         <img
           className="header9"
           src={home}
           onClick={() => navigate(`/homepage/${loggedInPerson.loginId}`)}
         />
-        {/* </button> */}
         <input
           className="header7"
           type="file"

@@ -9,16 +9,6 @@ import "react-toastify/dist/ReactToastify.css";
 import online from "../images/online.png";
 import offline from "../images/offline.png";
 import Post from "./post";
-import ad1 from "../images/ad1.gif";
-import ad2 from "../images/ad2.gif";
-import ad3 from "../images/ad3.gif";
-import ad4 from "../images/ad4.gif";
-import ad5 from "../images/ad5.gif";
-import ad6 from "../images/ad6.gif";
-import ad7 from "../images/ad7.gif";
-import ad8 from "../images/ad8.gif";
-import ad9 from "../images/ad9.gif";
-import ad10 from "../images/ad10.gif";
 import { db, storage } from "./firebase";
 import {
   addDoc,
@@ -30,14 +20,11 @@ import {
   updateDoc,
   where,
 } from "firebase/firestore";
-import { allUsers } from "./data";
-import { async } from "@firebase/util";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 function Homepage() {
   const navigate = useNavigate();
 
-  // const { loginid } = useParams();
 
   const loginid = localStorage.getItem("userLoggedIn");
 
@@ -46,7 +33,6 @@ function Homepage() {
     orderBy("timestamp", "desc")
   );
 
-  const [modal, showModal] = useState(false);
   const [currentUser, setAllUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   const [presentUser, setPresentUser] = useState([]);
@@ -56,7 +42,6 @@ function Homepage() {
   const logg = localStorage.getItem("islogin");
   const fileInput = useRef(null);
 
-  const userstate = [online, offline];
   useEffect(() => {
     if (logg == 0) {
       navigate("/mainpage");
@@ -74,12 +59,8 @@ function Homepage() {
   }, []);
 
   useEffect(() => {
-    // async function myfun(){
     getCurrentUsers();
-    // updateActive();
-    // }
 
-    // myfun();
   }, []);
 
   const getCurrentUsers = async () => {
@@ -94,17 +75,12 @@ function Homepage() {
   };
 
   if (presentUser.length > 0 && presentUser[0].active == false) {
-    // alert(presentUser[0].id);
 
     const userDoc = doc(db, "allUsers", presentUser[0].id);
     const newField = { active: true };
     updateDoc(userDoc, newField);
   }
 
-  // const queryRef = query(collection(db, "allUsers"), where("loginId", "==", parseInt(loginid)));
-  //
-  // const newField = {lastName: "KungFu"};
-  // if(updateDoc(queryRef, newField)){alert("hello");}
 
   let valuesA = [];
   const frienList = [];
@@ -140,20 +116,6 @@ function Homepage() {
     });
   }
 
-  // valuesA.map((e)=>{
-
-  // })
-
-  // valuesArray.map((e)=>{
-
-  // })
-
-  // useEffect(()=>{
-  //   presentUser[0].map((e)=>{
-
-  //   })
-  // })
-
   useEffect(() => {
     const getAllUsers = async () => {
       onSnapshot(collection(db, "allUsers"), (data) => {
@@ -177,7 +139,6 @@ function Homepage() {
     const getAllNotifications = async () => {
       const userRecentNotifcation = query(
         collection(db, "recent"),
-        // orderBy("timestamp", "desc"),
         where("from", "in", presentUser[0].myFriends)
       );
       onSnapshot(userRecentNotifcation, (data) => {
@@ -188,7 +149,6 @@ function Homepage() {
     };
     if (presentUser.length > 0) getAllNotifications();
   }, [presentUser]);
-  // console.log(recentNotify);
 
   useEffect(() => {
     const newPostUpload = () => {
@@ -234,16 +194,7 @@ function Homepage() {
                 time: currentTime,
                 timestamp: Date.now(),
               });
-              // const newCollectionRef = collection(
-              //   db,
-              //   "all Posts",
-              //   addPost.id,
-              //   "comment"
-              // );
-              // await addDoc(newCollectionRef, {
-              //   commentBy: "Shreyas",
-              //   commentText: "Nice",
-              // });
+              
             };
             newPost();
           });
@@ -259,7 +210,6 @@ function Homepage() {
       <div style={{ position: "fixed", zIndex: "1" }}>
         <Homepageheader loginid={loginid} />
       </div>
-      {/* <br /> */}
       <br />
       <div className="sides">
         <div className="leftbody">

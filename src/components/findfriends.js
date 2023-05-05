@@ -62,19 +62,20 @@ function Findfriends() {
       ) {
         newFriends.push(
           <div className="ff3">
-            {e.dp?
+            {e.dp ? (
               <img src={e.dp} className="ff4" />
-              :
+            ) : (
               <img src={dpDefault} className="ff4" />
-              }
+            )}
             <div className="ff7">
               {e.name} {e.lastName}
             </div>
 
             {presentUser[0].sentRequest.includes(e.loginId) ? (
-              <button 
-                className="ff9"
-              ><span><img src={cancelfriend} className="ff10" /> </span>
+              <button className="ff9">
+                <span>
+                  <img src={cancelfriend} className="ff10" />{" "}
+                </span>
                 <span>Sent Request</span>
               </button>
             ) : (
@@ -84,7 +85,9 @@ function Findfriends() {
                   addNotification(e, presentUser[0], index);
                 }}
               >
-                <span><img src={addfriend} className="ff11" /> </span>
+                <span>
+                  <img src={addfriend} className="ff11" />{" "}
+                </span>
                 <span>Add Friend</span>
               </button>
             )}
@@ -111,17 +114,17 @@ function Findfriends() {
     const userDoc5 = doc(db, "allUsers", presentUser[0].id);
 
     updateDoc(userDoc5, {
-      sentRequest: arrayUnion(e.loginId)
-    })
-
+      sentRequest: arrayUnion(e.loginId),
+    });
   };
-
 
   return (
     <div className="ff5">
       <div className="ff8">
         <Homepageheader loginid={userId} />
-      </div><br /><br />
+      </div>
+      <br />
+      <br />
       <div className="ff1">Find Friends</div>
       <div className="ff2">{newFriends}</div>
     </div>
