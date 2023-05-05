@@ -10,6 +10,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { db } from "./firebase";
 import { collection, addDoc } from "firebase/firestore";
 
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Signup() {
   const [error, setError] = useState(null);
   const [phoneerror, setPhoneError] = useState(null);
@@ -23,6 +27,7 @@ function Signup() {
   const phoneElement = useRef(null);
   const confirmPasswordElement = useRef(null);
   const nameElement = useRef(null);
+  const lastNameElement = useRef(null);
 
   const usersCollectionRef = collection(db, "loginDetails");
   const usersProfileRef = collection(db, "allUsers");
@@ -82,7 +87,7 @@ function Signup() {
       isValidPassword(confirmPasswordElement.current.value)
     ) {
       const createUser = async () => {
-        const newLoginId = Math.floor(Math.random() * 100) + 300;
+        const newLoginId = Math.floor(Math.random() * 100) + 500;
 
         await addDoc(usersCollectionRef, {
           loginId: newLoginId,
@@ -92,19 +97,32 @@ function Signup() {
 
         await addDoc(usersProfileRef, {
           aboutData: [],
+          active: false,
           coverpic: "",
           dp: "",
+          lastName:lastNameElement.current.value,
           loginId: newLoginId,
           myFriends: [],
           myposts: [],
           name: nameElement.current.value,
+          notification: false,
+          sentRequest :[],
           timeLineData: [],
         });
+
+
+        toast.success("Account created successfully", {
+          position: "top-center",
+        });
+  
+        window.location.reload();
+
       };
 
-      createUser();
+      createUser(); 
 
-      navigate("/mainpage");
+     
+     
     }
   };
 
@@ -131,7 +149,7 @@ function Signup() {
         <div className="signup4">
           <img className="signup5" src={NameIcon} />
           &nbsp;&nbsp;&nbsp;
-          <input className="signup6" type="text" placeholder="Last Name" />
+          <input className="signup6" type="text" placeholder="Last Name" ref={lastNameElement} />
         </div>
         <br />
         <br />
@@ -223,6 +241,7 @@ function Signup() {
           <button className="signup16">Continue with Twitter</button>
         </div> */}
       </div>
+      <ToastContainer />
     </div>
   );
 }

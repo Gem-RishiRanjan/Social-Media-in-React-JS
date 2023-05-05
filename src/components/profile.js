@@ -31,6 +31,7 @@ import {
 import { allUsers } from "./data";
 
 function Profile() {
+    const userId = localStorage.getItem("userLoggedIn");
   const { id } = useParams();
   const [section, setSection] = useState("1");
   const [currentUser, setAllUsers] = useState([]);
@@ -41,7 +42,7 @@ function Profile() {
   const [dpimage, setDpImage] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(100);
   const [viewUpload, setUpload] = useState(true);
-console.log(id)
+
   useEffect(() => {
     getAllUsers();
   },[]);
@@ -125,8 +126,11 @@ console.log(id)
   }, [dpimage]);
 
   return (
-    <div>
-      <Homepageheader loginid={id} />
+    <div className="profile19">
+      <div className="profile20">
+      <Homepageheader loginid={userId} />
+      </div>
+      <br/><br />
 
       <div className="profile">
         <div className="image">
@@ -147,7 +151,7 @@ console.log(id)
             type="file"
             ref={fileInput}
             onChange={(e) => {
-              console.log(e);
+              
               setImage(e.target.files[0]);
             }}
           />
@@ -233,6 +237,11 @@ console.log(id)
 
           <br />
         </div>
+        <div className="profile16">{
+              currentUser.length > 0 ? currentUser[0].name + " "+ currentUser[0].lastName:""
+            }
+        </div>
+        <div className="profile17"></div>
         <div>
           <div className="about">
             <button className="timeline" onClick={() => setSection("1")}>
@@ -250,6 +259,7 @@ console.log(id)
             </button>
             <button className="timeline">More</button>
           </div>
+          
         </div>
 
         <br />

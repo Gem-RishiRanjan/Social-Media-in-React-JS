@@ -18,8 +18,8 @@
     display: flex;
     flex: 1;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+        width: 100%;
+        height: 100%;
     /* border: 2px solid green; */
 
     
@@ -31,16 +31,18 @@
     justify-content: center;
     margin-left: 20px; */
     /* border: 5px solid rgb(19, 7, 131); */
-    margin-left: 23%;
+    margin-left: 10%;
     margin-right: 10%;
-    /* background-color: grey; */
+    margin-top: 2%;
+    /* background-color: red; */
    
     
 }
 .timeline{
-    border: none;
-    border-right: 0.2px solid lightgrey;
-    width: 20%;
+    /* border: none; */
+    border: 2px solid darkblue ;
+    /* border-right: 0.2px solid lightgrey; */
+    width: 15%;
     height: 50px;
     color: darkblue;
     font-size: 20px;
@@ -52,17 +54,21 @@
 
 .profile1{
     position: absolute;
-    left: 16vw; 
-    bottom: 25vh;
+    left: 21vw; 
+    bottom: 40vh;
     /* border: 1px solid grey; */
-    height: 25%; 
-    width: 13%;
+    height: 130px; 
+    width: 130px;
+    /* border-radius: 50px; */
     /* padding: 5; */
     /* background-color: white; */
     z-index: -1;
 
     /* margin-right: 40%; */
     /* padding-left: 10%; */
+    /* border: 2px solid red;
+    padding: 10px; */
+    border-radius: 65px;
 
 }
 
@@ -79,27 +85,31 @@
 
 .profile3{
     position: absolute;
-    right: 15vw;
+    right: 19.4vw;
     /* bottom: 28.9vh; */
     /* background-color: rgb(196, 213, 214); */
     /* font-weight: bold; */
     /* border: none; */
     /* z-index: 0; */
-    height: 70px;
+    height: 50px;
     /* width: 70px; */
-    margin-top: 325px;
+    margin-top: 246px;
     /* padding-left: 100px; */
 }
 
 .profile4{
     position: absolute;
-    left: 26vw;
-    bottom: 25vh;
+    left: 28vw;
+    bottom: 41vh;
     /* height: 20px;
     width: 50px; */
     /* border: none; */
     /* margin-left: 15.4%; */
     /* margin-bottom:10px; */
+    /* border: 2px solid red; */
+    padding-bottom: 3px;
+    border-radius: 25px;
+    background-color: white;
 }
 
 .profile5{
@@ -115,8 +125,8 @@
 .profile7{
     /* position: absolute; */
     z-index: -1;
-    height:60vh;
-    width:80vw;
+    height:45vh;
+    width:60vw;
 }
 
 .profile8{
@@ -167,8 +177,8 @@
 }
 
 .profile14{
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 17px;
     /* position: absolute;
     z-index: -1; */
 }
@@ -176,6 +186,46 @@
 .profile15{
     
     /* z-index: -1; */
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
+    
+}
+
+.profile16{
+    margin-left: 25%;
+    /* border: 2px solid red; */
+    /* height: 80px; */
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.profile17{
+    width: 84%;
+    margin-left: 10%;
+    margin-top: 2.5%;
+    border: 1px solid black;
+}
+
+.details{
+    margin-left: 10%;
+}
+.profile18{
+    width: 84%;
+    margin-left: 10%;
+    margin-top: 4%;
+    border: 1px solid black;
+}
+
+.profile20{
+    /* width: 80%; */
+    position: fixed;
+    z-index: 1;
+}
+.profile21{
+    margin-top: 5%;
+    margin-left: 3%;
+    width: 90%;
+    border: 2px solid black;
+  padding: 10px;
+  border-radius: 10px;
 }

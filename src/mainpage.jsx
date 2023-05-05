@@ -2,8 +2,8 @@ import "./App.css";
 import Landingpage from "./landingpage";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-
 function Mainpage() {
+  
   const navigate = useNavigate();
 
   const logg = localStorage.getItem("islogin");
@@ -12,6 +12,7 @@ function Mainpage() {
   useEffect(() => {
     if (logg == 1) {
       console.log(logg);
+      
       navigate(`/homepage/${userLoggedIn}`);
     }
   });
@@ -20,6 +21,7 @@ function Mainpage() {
     return <Landingpage />;
   }
 
-  return <></>;
+  return <>
+  </>;
 }
 export default Mainpage;
